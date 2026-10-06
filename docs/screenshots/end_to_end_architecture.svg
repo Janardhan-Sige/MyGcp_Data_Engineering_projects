@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="650" viewBox="0 0 1200 650">
+<rect width="1200" height="650" fill="#f8fafc"/>
+<text x="600" y="45" text-anchor="middle" font-family="Arial" font-size="28" font-weight="700">GCP Data Engineering End-to-End Architecture</text>
+<g font-family="Arial" font-size="18" text-anchor="middle">
+<rect x="60" y="100" width="200" height="70" rx="12" fill="#dbeafe" stroke="#2563eb"/><text x="160" y="142">Cloud Storage</text><text x="160" y="162" font-size="14">Batch CSV</text>
+<rect x="350" y="100" width="200" height="70" rx="12" fill="#dcfce7" stroke="#16a34a"/><text x="450" y="142">Cloud Composer</text><text x="450" y="162" font-size="14">Airflow DAG</text>
+<rect x="640" y="100" width="200" height="70" rx="12" fill="#fef3c7" stroke="#d97706"/><text x="740" y="142">Dataflow</text><text x="740" y="162" font-size="14">Batch Beam</text>
+<rect x="930" y="100" width="200" height="70" rx="12" fill="#ede9fe" stroke="#7c3aed"/><text x="1030" y="142">BigQuery</text><text x="1030" y="162" font-size="14">Warehouse</text>
+<path d="M260 135H350M550 135H640M840 135H930" stroke="#334155" stroke-width="4" marker-end="url(#a)"/>
+<rect x="60" y="350" width="200" height="70" rx="12" fill="#dbeafe" stroke="#2563eb"/><text x="160" y="392">Python Producer</text><text x="160" y="412" font-size="14">JSON Events</text>
+<rect x="350" y="350" width="200" height="70" rx="12" fill="#fce7f3" stroke="#db2777"/><text x="450" y="392">Pub/Sub</text><text x="450" y="412" font-size="14">Event Stream</text>
+<rect x="640" y="350" width="200" height="70" rx="12" fill="#fef3c7" stroke="#d97706"/><text x="740" y="392">Dataflow</text><text x="740" y="412" font-size="14">Streaming Beam</text>
+<rect x="930" y="350" width="200" height="70" rx="12" fill="#ede9fe" stroke="#7c3aed"/><text x="1030" y="392">BigQuery</text><text x="1030" y="412" font-size="14">Analytics</text>
+<path d="M260 385H350M550 385H640M840 385H930" stroke="#334155" stroke-width="4" marker-end="url(#a)"/>
+<rect x="350" y="520" width="500" height="70" rx="12" fill="#e2e8f0" stroke="#475569"/><text x="600" y="562">SQL Transformations &amp; KPIs</text><text x="600" y="582" font-size="14">Clean • Aggregate • Rank • Analyze</text>
+<path d="M1030 420V520H850" stroke="#334155" stroke-width="4" marker-end="url(#a)"/>
+<path d="M1030 170V230H850V520" stroke="#334155" stroke-width="4" marker-end="url(#a)"/>
+</g>
+<defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#334155"/></marker></defs>
+</svg>
