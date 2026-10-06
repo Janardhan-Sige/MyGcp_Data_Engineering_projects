@@ -1,0 +1,20 @@
+# Local Python files.
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local virtual environments.
+.venv/
+venv/
+env/
+
+# IDE files.
+.vscode/
+.idea/
+
+# Local secrets. Never commit service-account keys.
+*.json
+!data/**/*.json
+
+# Local environment files.
+.env
