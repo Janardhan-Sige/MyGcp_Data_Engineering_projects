@@ -1,0 +1,501 @@
+customer_id,customer_name,email,segment,city,state,signup_date,updated_at,source_system
+C00001,Customer 0001,customer1@example.com,PREMIUM,Bengaluru,Karnataka,2025-02-15,2026-07-02 08:00:00,CRM
+C00002,Customer 0002,customer2@example.com,VIP,Chennai,Tamil Nadu,2025-03-15,2026-07-03 08:00:00,CRM
+C00003,Customer 0003,customer3@example.com,STANDARD,Pune,Maharashtra,2025-04-15,2026-07-04 08:00:00,CRM
+C00004,Customer 0004,customer4@example.com,PREMIUM,Mumbai,Maharashtra,2025-05-15,2026-07-05 08:00:00,CRM
+C00005,Customer 0005,customer5@example.com,VIP,Delhi,Delhi,2025-06-15,2026-07-06 08:00:00,CRM
+C00006,Customer 0006,customer6@example.com,STANDARD,Hyderabad,Telangana,2025-07-15,2026-07-07 08:00:00,CRM
+C00007,Customer 0007,customer7@example.com,PREMIUM,Bengaluru,Karnataka,2025-08-15,2026-07-08 08:00:00,CRM
+C00008,Customer 0008,customer8@example.com,VIP,Chennai,Tamil Nadu,2025-09-15,2026-07-09 08:00:00,CRM
+C00009,Customer 0009,customer9@example.com,STANDARD,Pune,Maharashtra,2025-10-15,2026-07-10 08:00:00,CRM
+C00010,Customer 0010,customer10@example.com,PREMIUM,Mumbai,Maharashtra,2025-11-15,2026-07-11 08:00:00,CRM
+C00011,Customer 0011,customer11@example.com,VIP,Delhi,Delhi,2025-12-15,2026-07-12 08:00:00,CRM
+C00012,Customer 0012,customer12@example.com,STANDARD,Hyderabad,Telangana,2025-01-15,2026-07-13 08:00:00,CRM
+C00013,Customer 0013,customer13@example.com,PREMIUM,Bengaluru,Karnataka,2025-02-15,2026-07-14 08:00:00,CRM
+C00014,Customer 0014,customer14@example.com,VIP,Chennai,Tamil Nadu,2025-03-15,2026-07-15 08:00:00,CRM
+C00015,Customer 0015,customer15@example.com,STANDARD,Pune,Maharashtra,2025-04-15,2026-07-16 08:00:00,CRM
+C00016,Customer 0016,customer16@example.com,PREMIUM,Mumbai,Maharashtra,2025-05-15,2026-07-17 08:00:00,CRM
+C00017,Customer 0017,customer17@example.com,VIP,Delhi,Delhi,2025-06-15,2026-07-18 08:00:00,CRM
+C00018,Customer 0018,customer18@example.com,STANDARD,Hyderabad,Telangana,2025-07-15,2026-07-19 08:00:00,CRM
+C00019,Customer 0019,customer19@example.com,PREMIUM,Bengaluru,Karnataka,2025-08-15,2026-07-20 08:00:00,CRM
+C00020,Customer 0020,customer20@example.com,VIP,Chennai,Tamil Nadu,2025-09-15,2026-07-21 08:00:00,CRM
+C00021,Customer 0021,customer21@example.com,STANDARD,Pune,Maharashtra,2025-10-15,2026-07-22 08:00:00,CRM
+C00022,Customer 0022,customer22@example.com,PREMIUM,Mumbai,Maharashtra,2025-11-15,2026-07-23 08:00:00,CRM
+C00023,Customer 0023,customer23@example.com,VIP,Delhi,Delhi,2025-12-15,2026-07-24 08:00:00,CRM
+C00024,Customer 0024,customer24@example.com,STANDARD,Hyderabad,Telangana,2025-01-15,2026-07-25 08:00:00,CRM
+C00025,Customer 0025,customer25@example.com,PREMIUM,Bengaluru,Karnataka,2025-02-15,2026-07-26 08:00:00,CRM
+C00026,Customer 0026,customer26@example.com,VIP,Chennai,Tamil Nadu,2025-03-15,2026-07-27 08:00:00,CRM
+C00027,Customer 0027,customer27@example.com,STANDARD,Pune,Maharashtra,2025-04-15,2026-07-28 08:00:00,CRM
+C00028,Customer 0028,customer28@example.com,PREMIUM,Mumbai,Maharashtra,2025-05-15,2026-07-01 08:00:00,CRM
+C00029,Customer 0029,customer29@example.com,VIP,Delhi,Delhi,2025-06-15,2026-07-02 08:00:00,CRM
+C00030,Customer 0030,customer30@example.com,STANDARD,Hyderabad,Telangana,2025-07-15,2026-07-03 08:00:00,CRM
+C00031,Customer 0031,customer31@example.com,PREMIUM,Bengaluru,Karnataka,2025-08-15,2026-07-04 08:00:00,CRM
+C00032,Customer 0032,customer32@example.com,VIP,Chennai,Tamil Nadu,2025-09-15,2026-07-05 08:00:00,CRM
+C00033,Customer 0033,customer33@example.com,STANDARD,Pune,Maharashtra,2025-10-15,2026-07-06 08:00:00,CRM
+C00034,Customer 0034,customer34@example.com,PREMIUM,Mumbai,Maharashtra,2025-11-15,2026-07-07 08:00:00,CRM
+C00035,Customer 0035,customer35@example.com,VIP,Delhi,Delhi,2025-12-15,2026-07-08 08:00:00,CRM
+C00036,Customer 0036,customer36@example.com,STANDARD,Hyderabad,Telangana,2025-01-15,2026-07-09 08:00:00,CRM
+C00037,Customer 0037,customer37@example.com,PREMIUM,Bengaluru,Karnataka,2025-02-15,2026-07-10 08:00:00,CRM
+C00038,Customer 0038,customer38@example.com,VIP,Chennai,Tamil Nadu,2025-03-15,2026-07-11 08:00:00,CRM
+C00039,Customer 0039,customer39@example.com,STANDARD,Pune,Maharashtra,2025-04-15,2026-07-12 08:00:00,CRM
+C00040,Customer 0040,customer40@example.com,PREMIUM,Mumbai,Maharashtra,2025-05-15,2026-07-13 08:00:00,CRM
+C00041,Customer 0041,customer41@example.com,VIP,Delhi,Delhi,2025-06-15,2026-07-14 08:00:00,CRM
+C00042,Customer 0042,customer42@example.com,STANDARD,Hyderabad,Telangana,2025-07-15,2026-07-15 08:00:00,CRM
+C00043,Customer 0043,customer43@example.com,PREMIUM,Bengaluru,Karnataka,2025-08-15,2026-07-16 08:00:00,CRM
+C00044,Customer 0044,customer44@example.com,VIP,Chennai,Tamil Nadu,2025-09-15,2026-07-17 08:00:00,CRM
+C00045,Customer 0045,customer45@example.com,STANDARD,Pune,Maharashtra,2025-10-15,2026-07-18 08:00:00,CRM
+C00046,Customer 0046,customer46@example.com,PREMIUM,Mumbai,Maharashtra,2025-11-15,2026-07-19 08:00:00,CRM
+C00047,Customer 0047,customer47@example.com,VIP,Delhi,Delhi,2025-12-15,2026-07-20 08:00:00,CRM
+C00048,Customer 0048,customer48@example.com,STANDARD,Hyderabad,Telangana,2025-01-15,2026-07-21 08:00:00,CRM
+C00049,Customer 0049,customer49@example.com,PREMIUM,Bengaluru,Karnataka,2025-02-15,2026-07-22 08:00:00,CRM
+C00050,Customer 0050,customer50@example.com,VIP,Chennai,Tamil Nadu,2025-03-15,2026-07-23 08:00:00,CRM
+C00051,Customer 0051,customer51@example.com,STANDARD,Pune,Maharashtra,2025-04-15,2026-07-24 08:00:00,CRM
+C00052,Customer 0052,customer52@example.com,PREMIUM,Mumbai,Maharashtra,2025-05-15,2026-07-25 08:00:00,CRM
+C00053,Customer 0053,customer53@example.com,VIP,Delhi,Delhi,2025-06-15,2026-07-26 08:00:00,CRM
+C00054,Customer 0054,customer54@example.com,STANDARD,Hyderabad,Telangana,2025-07-15,2026-07-27 08:00:00,CRM
+C00055,Customer 0055,customer55@example.com,PREMIUM,Bengaluru,Karnataka,2025-08-15,2026-07-28 08:00:00,CRM
+C00056,Customer 0056,customer56@example.com,VIP,Chennai,Tamil Nadu,2025-09-15,2026-07-01 08:00:00,CRM
+C00057,Customer 0057,customer57@example.com,STANDARD,Pune,Maharashtra,2025-10-15,2026-07-02 08:00:00,CRM
+C00058,Customer 0058,customer58@example.com,PREMIUM,Mumbai,Maharashtra,2025-11-15,2026-07-03 08:00:00,CRM
+C00059,Customer 0059,customer59@example.com,VIP,Delhi,Delhi,2025-12-15,2026-07-04 08:00:00,CRM
+C00060,Customer 0060,customer60@example.com,STANDARD,Hyderabad,Telangana,2025-01-15,2026-07-05 08:00:00,CRM
+C00061,Customer 0061,customer61@example.com,PREMIUM,Bengaluru,Karnataka,2025-02-15,2026-07-06 08:00:00,CRM
+C00062,Customer 0062,customer62@example.com,VIP,Chennai,Tamil Nadu,2025-03-15,2026-07-07 08:00:00,CRM
+C00063,Customer 0063,customer63@example.com,STANDARD,Pune,Maharashtra,2025-04-15,2026-07-08 08:00:00,CRM
+C00064,Customer 0064,customer64@example.com,PREMIUM,Mumbai,Maharashtra,2025-05-15,2026-07-09 08:00:00,CRM
+C00065,Customer 0065,customer65@example.com,VIP,Delhi,Delhi,2025-06-15,2026-07-10 08:00:00,CRM
+C00066,Customer 0066,customer66@example.com,STANDARD,Hyderabad,Telangana,2025-07-15,2026-07-11 08:00:00,CRM
+C00067,Customer 0067,customer67@example.com,PREMIUM,Bengaluru,Karnataka,2025-08-15,2026-07-12 08:00:00,CRM
+C00068,Customer 0068,customer68@example.com,VIP,Chennai,Tamil Nadu,2025-09-15,2026-07-13 08:00:00,CRM
+C00069,Customer 0069,customer69@example.com,STANDARD,Pune,Maharashtra,2025-10-15,2026-07-14 08:00:00,CRM
+C00070,Customer 0070,customer70@example.com,PREMIUM,Mumbai,Maharashtra,2025-11-15,2026-07-15 08:00:00,CRM
+C00071,Customer 0071,customer71@example.com,VIP,Delhi,Delhi,2025-12-15,2026-07-16 08:00:00,CRM
+C00072,Customer 0072,customer72@example.com,STANDARD,Hyderabad,Telangana,2025-01-15,2026-07-17 08:00:00,CRM
+C00073,Customer 0073,customer73@example.com,PREMIUM,Bengaluru,Karnataka,2025-02-15,2026-07-18 08:00:00,CRM
+C00074,Customer 0074,customer74@example.com,VIP,Chennai,Tamil Nadu,2025-03-15,2026-07-19 08:00:00,CRM
+C00075,Customer 0075,customer75@example.com,STANDARD,Pune,Maharashtra,2025-04-15,2026-07-20 08:00:00,CRM
+C00076,Customer 0076,customer76@example.com,PREMIUM,Mumbai,Maharashtra,2025-05-15,2026-07-21 08:00:00,CRM
+C00077,Customer 0077,customer77@example.com,VIP,Delhi,Delhi,2025-06-15,2026-07-22 08:00:00,CRM
+C00078,Customer 0078,customer78@example.com,STANDARD,Hyderabad,Telangana,2025-07-15,2026-07-23 08:00:00,CRM
+C00079,Customer 0079,customer79@example.com,PREMIUM,Bengaluru,Karnataka,2025-08-15,2026-07-24 08:00:00,CRM
+C00080,Customer 0080,customer80@example.com,VIP,Chennai,Tamil Nadu,2025-09-15,2026-07-25 08:00:00,CRM
+C00081,Customer 0081,customer81@example.com,STANDARD,Pune,Maharashtra,2025-10-15,2026-07-26 08:00:00,CRM
+C00082,Customer 0082,customer82@example.com,PREMIUM,Mumbai,Maharashtra,2025-11-15,2026-07-27 08:00:00,CRM
+C00083,Customer 0083,customer83@example.com,VIP,Delhi,Delhi,2025-12-15,2026-07-28 08:00:00,CRM
+C00084,Customer 0084,customer84@example.com,STANDARD,Hyderabad,Telangana,2025-01-15,2026-07-01 08:00:00,CRM
+C00085,Customer 0085,customer85@example.com,PREMIUM,Bengaluru,Karnataka,2025-02-15,2026-07-02 08:00:00,CRM
+C00086,Customer 0086,customer86@example.com,VIP,Chennai,Tamil Nadu,2025-03-15,2026-07-03 08:00:00,CRM
+C00087,Customer 0087,customer87@example.com,STANDARD,Pune,Maharashtra,2025-04-15,2026-07-04 08:00:00,CRM
+C00088,Customer 0088,customer88@example.com,PREMIUM,Mumbai,Maharashtra,2025-05-15,2026-07-05 08:00:00,CRM
+C00089,Customer 0089,customer89@example.com,VIP,Delhi,Delhi,2025-06-15,2026-07-06 08:00:00,CRM
+C00090,Customer 0090,customer90@example.com,STANDARD,Hyderabad,Telangana,2025-07-15,2026-07-07 08:00:00,CRM
+C00091,Customer 0091,customer91@example.com,PREMIUM,Bengaluru,Karnataka,2025-08-15,2026-07-08 08:00:00,CRM
+C00092,Customer 0092,customer92@example.com,VIP,Chennai,Tamil Nadu,2025-09-15,2026-07-09 08:00:00,CRM
+C00093,Customer 0093,customer93@example.com,STANDARD,Pune,Maharashtra,2025-10-15,2026-07-10 08:00:00,CRM
+C00094,Customer 0094,customer94@example.com,PREMIUM,Mumbai,Maharashtra,2025-11-15,2026-07-11 08:00:00,CRM
+C00095,Customer 0095,customer95@example.com,VIP,Delhi,Delhi,2025-12-15,2026-07-12 08:00:00,CRM
+C00096,Customer 0096,customer96@example.com,STANDARD,Hyderabad,Telangana,2025-01-15,2026-07-13 08:00:00,CRM
+C00097,Customer 0097,customer97@example.com,PREMIUM,Bengaluru,Karnataka,2025-02-15,2026-07-14 08:00:00,CRM
+C00098,Customer 0098,customer98@example.com,VIP,Chennai,Tamil Nadu,2025-03-15,2026-07-15 08:00:00,CRM
+C00099,Customer 0099,customer99@example.com,STANDARD,Pune,Maharashtra,2025-04-15,2026-07-16 08:00:00,CRM
+C00100,Customer 0100,customer100@example.com,PREMIUM,Mumbai,Maharashtra,2025-05-15,2026-07-17 08:00:00,CRM
+C00101,Customer 0101,customer101@example.com,VIP,Delhi,Delhi,2025-06-15,2026-07-18 08:00:00,CRM
+C00102,Customer 0102,customer102@example.com,STANDARD,Hyderabad,Telangana,2025-07-15,2026-07-19 08:00:00,CRM
+C00103,Customer 0103,customer103@example.com,PREMIUM,Bengaluru,Karnataka,2025-08-15,2026-07-20 08:00:00,CRM
+C00104,Customer 0104,customer104@example.com,VIP,Chennai,Tamil Nadu,2025-09-15,2026-07-21 08:00:00,CRM
+C00105,Customer 0105,customer105@example.com,STANDARD,Pune,Maharashtra,2025-10-15,2026-07-22 08:00:00,CRM
+C00106,Customer 0106,customer106@example.com,PREMIUM,Mumbai,Maharashtra,2025-11-15,2026-07-23 08:00:00,CRM
+C00107,Customer 0107,customer107@example.com,VIP,Delhi,Delhi,2025-12-15,2026-07-24 08:00:00,CRM
+C00108,Customer 0108,customer108@example.com,STANDARD,Hyderabad,Telangana,2025-01-15,2026-07-25 08:00:00,CRM
+C00109,Customer 0109,customer109@example.com,PREMIUM,Bengaluru,Karnataka,2025-02-15,2026-07-26 08:00:00,CRM
+C00110,Customer 0110,customer110@example.com,VIP,Chennai,Tamil Nadu,2025-03-15,2026-07-27 08:00:00,CRM
+C00111,Customer 0111,customer111@example.com,STANDARD,Pune,Maharashtra,2025-04-15,2026-07-28 08:00:00,CRM
+C00112,Customer 0112,customer112@example.com,PREMIUM,Mumbai,Maharashtra,2025-05-15,2026-07-01 08:00:00,CRM
+C00113,Customer 0113,customer113@example.com,VIP,Delhi,Delhi,2025-06-15,2026-07-02 08:00:00,CRM
+C00114,Customer 0114,customer114@example.com,STANDARD,Hyderabad,Telangana,2025-07-15,2026-07-03 08:00:00,CRM
+C00115,Customer 0115,customer115@example.com,PREMIUM,Bengaluru,Karnataka,2025-08-15,2026-07-04 08:00:00,CRM
+C00116,Customer 0116,customer116@example.com,VIP,Chennai,Tamil Nadu,2025-09-15,2026-07-05 08:00:00,CRM
+C00117,Customer 0117,customer117@example.com,STANDARD,Pune,Maharashtra,2025-10-15,2026-07-06 08:00:00,CRM
+C00118,Customer 0118,customer118@example.com,PREMIUM,Mumbai,Maharashtra,2025-11-15,2026-07-07 08:00:00,CRM
+C00119,Customer 0119,customer119@example.com,VIP,Delhi,Delhi,2025-12-15,2026-07-08 08:00:00,CRM
+C00120,Customer 0120,customer120@example.com,STANDARD,Hyderabad,Telangana,2025-01-15,2026-07-09 08:00:00,CRM
+C00121,Customer 0121,customer121@example.com,PREMIUM,Bengaluru,Karnataka,2025-02-15,2026-07-10 08:00:00,CRM
+C00122,Customer 0122,customer122@example.com,VIP,Chennai,Tamil Nadu,2025-03-15,2026-07-11 08:00:00,CRM
+C00123,Customer 0123,customer123@example.com,STANDARD,Pune,Maharashtra,2025-04-15,2026-07-12 08:00:00,CRM
+C00124,Customer 0124,customer124@example.com,PREMIUM,Mumbai,Maharashtra,2025-05-15,2026-07-13 08:00:00,CRM
+C00125,Customer 0125,customer125@example.com,VIP,Delhi,Delhi,2025-06-15,2026-07-14 08:00:00,CRM
+C00126,Customer 0126,customer126@example.com,STANDARD,Hyderabad,Telangana,2025-07-15,2026-07-15 08:00:00,CRM
+C00127,Customer 0127,customer127@example.com,PREMIUM,Bengaluru,Karnataka,2025-08-15,2026-07-16 08:00:00,CRM
+C00128,Customer 0128,customer128@example.com,VIP,Chennai,Tamil Nadu,2025-09-15,2026-07-17 08:00:00,CRM
+C00129,Customer 0129,customer129@example.com,STANDARD,Pune,Maharashtra,2025-10-15,2026-07-18 08:00:00,CRM
+C00130,Customer 0130,customer130@example.com,PREMIUM,Mumbai,Maharashtra,2025-11-15,2026-07-19 08:00:00,CRM
+C00131,Customer 0131,customer131@example.com,VIP,Delhi,Delhi,2025-12-15,2026-07-20 08:00:00,CRM
+C00132,Customer 0132,customer132@example.com,STANDARD,Hyderabad,Telangana,2025-01-15,2026-07-21 08:00:00,CRM
+C00133,Customer 0133,customer133@example.com,PREMIUM,Bengaluru,Karnataka,2025-02-15,2026-07-22 08:00:00,CRM
+C00134,Customer 0134,customer134@example.com,VIP,Chennai,Tamil Nadu,2025-03-15,2026-07-23 08:00:00,CRM
+C00135,Customer 0135,customer135@example.com,STANDARD,Pune,Maharashtra,2025-04-15,2026-07-24 08:00:00,CRM
+C00136,Customer 0136,customer136@example.com,PREMIUM,Mumbai,Maharashtra,2025-05-15,2026-07-25 08:00:00,CRM
+C00137,Customer 0137,customer137@example.com,VIP,Delhi,Delhi,2025-06-15,2026-07-26 08:00:00,CRM
+C00138,Customer 0138,customer138@example.com,STANDARD,Hyderabad,Telangana,2025-07-15,2026-07-27 08:00:00,CRM
+C00139,Customer 0139,customer139@example.com,PREMIUM,Bengaluru,Karnataka,2025-08-15,2026-07-28 08:00:00,CRM
+C00140,Customer 0140,customer140@example.com,VIP,Chennai,Tamil Nadu,2025-09-15,2026-07-01 08:00:00,CRM
+C00141,Customer 0141,customer141@example.com,STANDARD,Pune,Maharashtra,2025-10-15,2026-07-02 08:00:00,CRM
+C00142,Customer 0142,customer142@example.com,PREMIUM,Mumbai,Maharashtra,2025-11-15,2026-07-03 08:00:00,CRM
+C00143,Customer 0143,customer143@example.com,VIP,Delhi,Delhi,2025-12-15,2026-07-04 08:00:00,CRM
+C00144,Customer 0144,customer144@example.com,STANDARD,Hyderabad,Telangana,2025-01-15,2026-07-05 08:00:00,CRM
+C00145,Customer 0145,customer145@example.com,PREMIUM,Bengaluru,Karnataka,2025-02-15,2026-07-06 08:00:00,CRM
+C00146,Customer 0146,customer146@example.com,VIP,Chennai,Tamil Nadu,2025-03-15,2026-07-07 08:00:00,CRM
+C00147,Customer 0147,customer147@example.com,STANDARD,Pune,Maharashtra,2025-04-15,2026-07-08 08:00:00,CRM
+C00148,Customer 0148,customer148@example.com,PREMIUM,Mumbai,Maharashtra,2025-05-15,2026-07-09 08:00:00,CRM
+C00149,Customer 0149,customer149@example.com,VIP,Delhi,Delhi,2025-06-15,2026-07-10 08:00:00,CRM
+C00150,Customer 0150,customer150@example.com,STANDARD,Hyderabad,Telangana,2025-07-15,2026-07-11 08:00:00,CRM
+C00151,Customer 0151,customer151@example.com,PREMIUM,Bengaluru,Karnataka,2025-08-15,2026-07-12 08:00:00,CRM
+C00152,Customer 0152,customer152@example.com,VIP,Chennai,Tamil Nadu,2025-09-15,2026-07-13 08:00:00,CRM
+C00153,Customer 0153,customer153@example.com,STANDARD,Pune,Maharashtra,2025-10-15,2026-07-14 08:00:00,CRM
+C00154,Customer 0154,customer154@example.com,PREMIUM,Mumbai,Maharashtra,2025-11-15,2026-07-15 08:00:00,CRM
+C00155,Customer 0155,customer155@example.com,VIP,Delhi,Delhi,2025-12-15,2026-07-16 08:00:00,CRM
+C00156,Customer 0156,customer156@example.com,STANDARD,Hyderabad,Telangana,2025-01-15,2026-07-17 08:00:00,CRM
+C00157,Customer 0157,customer157@example.com,PREMIUM,Bengaluru,Karnataka,2025-02-15,2026-07-18 08:00:00,CRM
+C00158,Customer 0158,customer158@example.com,VIP,Chennai,Tamil Nadu,2025-03-15,2026-07-19 08:00:00,CRM
+C00159,Customer 0159,customer159@example.com,STANDARD,Pune,Maharashtra,2025-04-15,2026-07-20 08:00:00,CRM
+C00160,Customer 0160,customer160@example.com,PREMIUM,Mumbai,Maharashtra,2025-05-15,2026-07-21 08:00:00,CRM
+C00161,Customer 0161,customer161@example.com,VIP,Delhi,Delhi,2025-06-15,2026-07-22 08:00:00,CRM
+C00162,Customer 0162,customer162@example.com,STANDARD,Hyderabad,Telangana,2025-07-15,2026-07-23 08:00:00,CRM
+C00163,Customer 0163,customer163@example.com,PREMIUM,Bengaluru,Karnataka,2025-08-15,2026-07-24 08:00:00,CRM
+C00164,Customer 0164,customer164@example.com,VIP,Chennai,Tamil Nadu,2025-09-15,2026-07-25 08:00:00,CRM
+C00165,Customer 0165,customer165@example.com,STANDARD,Pune,Maharashtra,2025-10-15,2026-07-26 08:00:00,CRM
+C00166,Customer 0166,customer166@example.com,PREMIUM,Mumbai,Maharashtra,2025-11-15,2026-07-27 08:00:00,CRM
+C00167,Customer 0167,customer167@example.com,VIP,Delhi,Delhi,2025-12-15,2026-07-28 08:00:00,CRM
+C00168,Customer 0168,customer168@example.com,STANDARD,Hyderabad,Telangana,2025-01-15,2026-07-01 08:00:00,CRM
+C00169,Customer 0169,customer169@example.com,PREMIUM,Bengaluru,Karnataka,2025-02-15,2026-07-02 08:00:00,CRM
+C00170,Customer 0170,customer170@example.com,VIP,Chennai,Tamil Nadu,2025-03-15,2026-07-03 08:00:00,CRM
+C00171,Customer 0171,customer171@example.com,STANDARD,Pune,Maharashtra,2025-04-15,2026-07-04 08:00:00,CRM
+C00172,Customer 0172,customer172@example.com,PREMIUM,Mumbai,Maharashtra,2025-05-15,2026-07-05 08:00:00,CRM
+C00173,Customer 0173,customer173@example.com,VIP,Delhi,Delhi,2025-06-15,2026-07-06 08:00:00,CRM
+C00174,Customer 0174,customer174@example.com,STANDARD,Hyderabad,Telangana,2025-07-15,2026-07-07 08:00:00,CRM
+C00175,Customer 0175,customer175@example.com,PREMIUM,Bengaluru,Karnataka,2025-08-15,2026-07-08 08:00:00,CRM
+C00176,Customer 0176,customer176@example.com,VIP,Chennai,Tamil Nadu,2025-09-15,2026-07-09 08:00:00,CRM
+C00177,Customer 0177,customer177@example.com,STANDARD,Pune,Maharashtra,2025-10-15,2026-07-10 08:00:00,CRM
+C00178,Customer 0178,customer178@example.com,PREMIUM,Mumbai,Maharashtra,2025-11-15,2026-07-11 08:00:00,CRM
+C00179,Customer 0179,customer179@example.com,VIP,Delhi,Delhi,2025-12-15,2026-07-12 08:00:00,CRM
+C00180,Customer 0180,customer180@example.com,STANDARD,Hyderabad,Telangana,2025-01-15,2026-07-13 08:00:00,CRM
+C00181,Customer 0181,customer181@example.com,PREMIUM,Bengaluru,Karnataka,2025-02-15,2026-07-14 08:00:00,CRM
+C00182,Customer 0182,customer182@example.com,VIP,Chennai,Tamil Nadu,2025-03-15,2026-07-15 08:00:00,CRM
+C00183,Customer 0183,customer183@example.com,STANDARD,Pune,Maharashtra,2025-04-15,2026-07-16 08:00:00,CRM
+C00184,Customer 0184,customer184@example.com,PREMIUM,Mumbai,Maharashtra,2025-05-15,2026-07-17 08:00:00,CRM
+C00185,Customer 0185,customer185@example.com,VIP,Delhi,Delhi,2025-06-15,2026-07-18 08:00:00,CRM
+C00186,Customer 0186,customer186@example.com,STANDARD,Hyderabad,Telangana,2025-07-15,2026-07-19 08:00:00,CRM
+C00187,Customer 0187,customer187@example.com,PREMIUM,Bengaluru,Karnataka,2025-08-15,2026-07-20 08:00:00,CRM
+C00188,Customer 0188,customer188@example.com,VIP,Chennai,Tamil Nadu,2025-09-15,2026-07-21 08:00:00,CRM
+C00189,Customer 0189,customer189@example.com,STANDARD,Pune,Maharashtra,2025-10-15,2026-07-22 08:00:00,CRM
+C00190,Customer 0190,customer190@example.com,PREMIUM,Mumbai,Maharashtra,2025-11-15,2026-07-23 08:00:00,CRM
+C00191,Customer 0191,customer191@example.com,VIP,Delhi,Delhi,2025-12-15,2026-07-24 08:00:00,CRM
+C00192,Customer 0192,customer192@example.com,STANDARD,Hyderabad,Telangana,2025-01-15,2026-07-25 08:00:00,CRM
+C00193,Customer 0193,customer193@example.com,PREMIUM,Bengaluru,Karnataka,2025-02-15,2026-07-26 08:00:00,CRM
+C00194,Customer 0194,customer194@example.com,VIP,Chennai,Tamil Nadu,2025-03-15,2026-07-27 08:00:00,CRM
+C00195,Customer 0195,customer195@example.com,STANDARD,Pune,Maharashtra,2025-04-15,2026-07-28 08:00:00,CRM
+C00196,Customer 0196,customer196@example.com,PREMIUM,Mumbai,Maharashtra,2025-05-15,2026-07-01 08:00:00,CRM
+C00197,Customer 0197,customer197@example.com,VIP,Delhi,Delhi,2025-06-15,2026-07-02 08:00:00,CRM
+C00198,Customer 0198,customer198@example.com,STANDARD,Hyderabad,Telangana,2025-07-15,2026-07-03 08:00:00,CRM
+C00199,Customer 0199,customer199@example.com,PREMIUM,Bengaluru,Karnataka,2025-08-15,2026-07-04 08:00:00,CRM
+C00200,Customer 0200,customer200@example.com,VIP,Chennai,Tamil Nadu,2025-09-15,2026-07-05 08:00:00,CRM
+C00201,Customer 0201,customer201@example.com,STANDARD,Pune,Maharashtra,2025-10-15,2026-07-06 08:00:00,CRM
+C00202,Customer 0202,customer202@example.com,PREMIUM,Mumbai,Maharashtra,2025-11-15,2026-07-07 08:00:00,CRM
+C00203,Customer 0203,customer203@example.com,VIP,Delhi,Delhi,2025-12-15,2026-07-08 08:00:00,CRM
+C00204,Customer 0204,customer204@example.com,STANDARD,Hyderabad,Telangana,2025-01-15,2026-07-09 08:00:00,CRM
+C00205,Customer 0205,customer205@example.com,PREMIUM,Bengaluru,Karnataka,2025-02-15,2026-07-10 08:00:00,CRM
+C00206,Customer 0206,customer206@example.com,VIP,Chennai,Tamil Nadu,2025-03-15,2026-07-11 08:00:00,CRM
+C00207,Customer 0207,customer207@example.com,STANDARD,Pune,Maharashtra,2025-04-15,2026-07-12 08:00:00,CRM
+C00208,Customer 0208,customer208@example.com,PREMIUM,Mumbai,Maharashtra,2025-05-15,2026-07-13 08:00:00,CRM
+C00209,Customer 0209,customer209@example.com,VIP,Delhi,Delhi,2025-06-15,2026-07-14 08:00:00,CRM
+C00210,Customer 0210,customer210@example.com,STANDARD,Hyderabad,Telangana,2025-07-15,2026-07-15 08:00:00,CRM
+C00211,Customer 0211,customer211@example.com,PREMIUM,Bengaluru,Karnataka,2025-08-15,2026-07-16 08:00:00,CRM
+C00212,Customer 0212,customer212@example.com,VIP,Chennai,Tamil Nadu,2025-09-15,2026-07-17 08:00:00,CRM
+C00213,Customer 0213,customer213@example.com,STANDARD,Pune,Maharashtra,2025-10-15,2026-07-18 08:00:00,CRM
+C00214,Customer 0214,customer214@example.com,PREMIUM,Mumbai,Maharashtra,2025-11-15,2026-07-19 08:00:00,CRM
+C00215,Customer 0215,customer215@example.com,VIP,Delhi,Delhi,2025-12-15,2026-07-20 08:00:00,CRM
+C00216,Customer 0216,customer216@example.com,STANDARD,Hyderabad,Telangana,2025-01-15,2026-07-21 08:00:00,CRM
+C00217,Customer 0217,customer217@example.com,PREMIUM,Bengaluru,Karnataka,2025-02-15,2026-07-22 08:00:00,CRM
+C00218,Customer 0218,customer218@example.com,VIP,Chennai,Tamil Nadu,2025-03-15,2026-07-23 08:00:00,CRM
+C00219,Customer 0219,customer219@example.com,STANDARD,Pune,Maharashtra,2025-04-15,2026-07-24 08:00:00,CRM
+C00220,Customer 0220,customer220@example.com,PREMIUM,Mumbai,Maharashtra,2025-05-15,2026-07-25 08:00:00,CRM
+C00221,Customer 0221,customer221@example.com,VIP,Delhi,Delhi,2025-06-15,2026-07-26 08:00:00,CRM
+C00222,Customer 0222,customer222@example.com,STANDARD,Hyderabad,Telangana,2025-07-15,2026-07-27 08:00:00,CRM
+C00223,Customer 0223,customer223@example.com,PREMIUM,Bengaluru,Karnataka,2025-08-15,2026-07-28 08:00:00,CRM
+C00224,Customer 0224,customer224@example.com,VIP,Chennai,Tamil Nadu,2025-09-15,2026-07-01 08:00:00,CRM
+C00225,Customer 0225,customer225@example.com,STANDARD,Pune,Maharashtra,2025-10-15,2026-07-02 08:00:00,CRM
+C00226,Customer 0226,customer226@example.com,PREMIUM,Mumbai,Maharashtra,2025-11-15,2026-07-03 08:00:00,CRM
+C00227,Customer 0227,customer227@example.com,VIP,Delhi,Delhi,2025-12-15,2026-07-04 08:00:00,CRM
+C00228,Customer 0228,customer228@example.com,STANDARD,Hyderabad,Telangana,2025-01-15,2026-07-05 08:00:00,CRM
+C00229,Customer 0229,customer229@example.com,PREMIUM,Bengaluru,Karnataka,2025-02-15,2026-07-06 08:00:00,CRM
+C00230,Customer 0230,customer230@example.com,VIP,Chennai,Tamil Nadu,2025-03-15,2026-07-07 08:00:00,CRM
+C00231,Customer 0231,customer231@example.com,STANDARD,Pune,Maharashtra,2025-04-15,2026-07-08 08:00:00,CRM
+C00232,Customer 0232,customer232@example.com,PREMIUM,Mumbai,Maharashtra,2025-05-15,2026-07-09 08:00:00,CRM
+C00233,Customer 0233,customer233@example.com,VIP,Delhi,Delhi,2025-06-15,2026-07-10 08:00:00,CRM
+C00234,Customer 0234,customer234@example.com,STANDARD,Hyderabad,Telangana,2025-07-15,2026-07-11 08:00:00,CRM
+C00235,Customer 0235,customer235@example.com,PREMIUM,Bengaluru,Karnataka,2025-08-15,2026-07-12 08:00:00,CRM
+C00236,Customer 0236,customer236@example.com,VIP,Chennai,Tamil Nadu,2025-09-15,2026-07-13 08:00:00,CRM
+C00237,Customer 0237,customer237@example.com,STANDARD,Pune,Maharashtra,2025-10-15,2026-07-14 08:00:00,CRM
+C00238,Customer 0238,customer238@example.com,PREMIUM,Mumbai,Maharashtra,2025-11-15,2026-07-15 08:00:00,CRM
+C00239,Customer 0239,customer239@example.com,VIP,Delhi,Delhi,2025-12-15,2026-07-16 08:00:00,CRM
+C00240,Customer 0240,customer240@example.com,STANDARD,Hyderabad,Telangana,2025-01-15,2026-07-17 08:00:00,CRM
+C00241,Customer 0241,customer241@example.com,PREMIUM,Bengaluru,Karnataka,2025-02-15,2026-07-18 08:00:00,CRM
+C00242,Customer 0242,customer242@example.com,VIP,Chennai,Tamil Nadu,2025-03-15,2026-07-19 08:00:00,CRM
+C00243,Customer 0243,customer243@example.com,STANDARD,Pune,Maharashtra,2025-04-15,2026-07-20 08:00:00,CRM
+C00244,Customer 0244,customer244@example.com,PREMIUM,Mumbai,Maharashtra,2025-05-15,2026-07-21 08:00:00,CRM
+C00245,Customer 0245,customer245@example.com,VIP,Delhi,Delhi,2025-06-15,2026-07-22 08:00:00,CRM
+C00246,Customer 0246,customer246@example.com,STANDARD,Hyderabad,Telangana,2025-07-15,2026-07-23 08:00:00,CRM
+C00247,Customer 0247,customer247@example.com,PREMIUM,Bengaluru,Karnataka,2025-08-15,2026-07-24 08:00:00,CRM
+C00248,Customer 0248,customer248@example.com,VIP,Chennai,Tamil Nadu,2025-09-15,2026-07-25 08:00:00,CRM
+C00249,Customer 0249,customer249@example.com,STANDARD,Pune,Maharashtra,2025-10-15,2026-07-26 08:00:00,CRM
+C00250,Customer 0250,customer250@example.com,PREMIUM,Mumbai,Maharashtra,2025-11-15,2026-07-27 08:00:00,CRM
+C00251,Customer 0251,customer251@example.com,VIP,Delhi,Delhi,2025-12-15,2026-07-28 08:00:00,CRM
+C00252,Customer 0252,customer252@example.com,STANDARD,Hyderabad,Telangana,2025-01-15,2026-07-01 08:00:00,CRM
+C00253,Customer 0253,customer253@example.com,PREMIUM,Bengaluru,Karnataka,2025-02-15,2026-07-02 08:00:00,CRM
+C00254,Customer 0254,customer254@example.com,VIP,Chennai,Tamil Nadu,2025-03-15,2026-07-03 08:00:00,CRM
+C00255,Customer 0255,customer255@example.com,STANDARD,Pune,Maharashtra,2025-04-15,2026-07-04 08:00:00,CRM
+C00256,Customer 0256,customer256@example.com,PREMIUM,Mumbai,Maharashtra,2025-05-15,2026-07-05 08:00:00,CRM
+C00257,Customer 0257,customer257@example.com,VIP,Delhi,Delhi,2025-06-15,2026-07-06 08:00:00,CRM
+C00258,Customer 0258,customer258@example.com,STANDARD,Hyderabad,Telangana,2025-07-15,2026-07-07 08:00:00,CRM
+C00259,Customer 0259,customer259@example.com,PREMIUM,Bengaluru,Karnataka,2025-08-15,2026-07-08 08:00:00,CRM
+C00260,Customer 0260,customer260@example.com,VIP,Chennai,Tamil Nadu,2025-09-15,2026-07-09 08:00:00,CRM
+C00261,Customer 0261,customer261@example.com,STANDARD,Pune,Maharashtra,2025-10-15,2026-07-10 08:00:00,CRM
+C00262,Customer 0262,customer262@example.com,PREMIUM,Mumbai,Maharashtra,2025-11-15,2026-07-11 08:00:00,CRM
+C00263,Customer 0263,customer263@example.com,VIP,Delhi,Delhi,2025-12-15,2026-07-12 08:00:00,CRM
+C00264,Customer 0264,customer264@example.com,STANDARD,Hyderabad,Telangana,2025-01-15,2026-07-13 08:00:00,CRM
+C00265,Customer 0265,customer265@example.com,PREMIUM,Bengaluru,Karnataka,2025-02-15,2026-07-14 08:00:00,CRM
+C00266,Customer 0266,customer266@example.com,VIP,Chennai,Tamil Nadu,2025-03-15,2026-07-15 08:00:00,CRM
+C00267,Customer 0267,customer267@example.com,STANDARD,Pune,Maharashtra,2025-04-15,2026-07-16 08:00:00,CRM
+C00268,Customer 0268,customer268@example.com,PREMIUM,Mumbai,Maharashtra,2025-05-15,2026-07-17 08:00:00,CRM
+C00269,Customer 0269,customer269@example.com,VIP,Delhi,Delhi,2025-06-15,2026-07-18 08:00:00,CRM
+C00270,Customer 0270,customer270@example.com,STANDARD,Hyderabad,Telangana,2025-07-15,2026-07-19 08:00:00,CRM
+C00271,Customer 0271,customer271@example.com,PREMIUM,Bengaluru,Karnataka,2025-08-15,2026-07-20 08:00:00,CRM
+C00272,Customer 0272,customer272@example.com,VIP,Chennai,Tamil Nadu,2025-09-15,2026-07-21 08:00:00,CRM
+C00273,Customer 0273,customer273@example.com,STANDARD,Pune,Maharashtra,2025-10-15,2026-07-22 08:00:00,CRM
+C00274,Customer 0274,customer274@example.com,PREMIUM,Mumbai,Maharashtra,2025-11-15,2026-07-23 08:00:00,CRM
+C00275,Customer 0275,customer275@example.com,VIP,Delhi,Delhi,2025-12-15,2026-07-24 08:00:00,CRM
+C00276,Customer 0276,customer276@example.com,STANDARD,Hyderabad,Telangana,2025-01-15,2026-07-25 08:00:00,CRM
+C00277,Customer 0277,customer277@example.com,PREMIUM,Bengaluru,Karnataka,2025-02-15,2026-07-26 08:00:00,CRM
+C00278,Customer 0278,customer278@example.com,VIP,Chennai,Tamil Nadu,2025-03-15,2026-07-27 08:00:00,CRM
+C00279,Customer 0279,customer279@example.com,STANDARD,Pune,Maharashtra,2025-04-15,2026-07-28 08:00:00,CRM
+C00280,Customer 0280,customer280@example.com,PREMIUM,Mumbai,Maharashtra,2025-05-15,2026-07-01 08:00:00,CRM
+C00281,Customer 0281,customer281@example.com,VIP,Delhi,Delhi,2025-06-15,2026-07-02 08:00:00,CRM
+C00282,Customer 0282,customer282@example.com,STANDARD,Hyderabad,Telangana,2025-07-15,2026-07-03 08:00:00,CRM
+C00283,Customer 0283,customer283@example.com,PREMIUM,Bengaluru,Karnataka,2025-08-15,2026-07-04 08:00:00,CRM
+C00284,Customer 0284,customer284@example.com,VIP,Chennai,Tamil Nadu,2025-09-15,2026-07-05 08:00:00,CRM
+C00285,Customer 0285,customer285@example.com,STANDARD,Pune,Maharashtra,2025-10-15,2026-07-06 08:00:00,CRM
+C00286,Customer 0286,customer286@example.com,PREMIUM,Mumbai,Maharashtra,2025-11-15,2026-07-07 08:00:00,CRM
+C00287,Customer 0287,customer287@example.com,VIP,Delhi,Delhi,2025-12-15,2026-07-08 08:00:00,CRM
+C00288,Customer 0288,customer288@example.com,STANDARD,Hyderabad,Telangana,2025-01-15,2026-07-09 08:00:00,CRM
+C00289,Customer 0289,customer289@example.com,PREMIUM,Bengaluru,Karnataka,2025-02-15,2026-07-10 08:00:00,CRM
+C00290,Customer 0290,customer290@example.com,VIP,Chennai,Tamil Nadu,2025-03-15,2026-07-11 08:00:00,CRM
+C00291,Customer 0291,customer291@example.com,STANDARD,Pune,Maharashtra,2025-04-15,2026-07-12 08:00:00,CRM
+C00292,Customer 0292,customer292@example.com,PREMIUM,Mumbai,Maharashtra,2025-05-15,2026-07-13 08:00:00,CRM
+C00293,Customer 0293,customer293@example.com,VIP,Delhi,Delhi,2025-06-15,2026-07-14 08:00:00,CRM
+C00294,Customer 0294,customer294@example.com,STANDARD,Hyderabad,Telangana,2025-07-15,2026-07-15 08:00:00,CRM
+C00295,Customer 0295,customer295@example.com,PREMIUM,Bengaluru,Karnataka,2025-08-15,2026-07-16 08:00:00,CRM
+C00296,Customer 0296,customer296@example.com,VIP,Chennai,Tamil Nadu,2025-09-15,2026-07-17 08:00:00,CRM
+C00297,Customer 0297,customer297@example.com,STANDARD,Pune,Maharashtra,2025-10-15,2026-07-18 08:00:00,CRM
+C00298,Customer 0298,customer298@example.com,PREMIUM,Mumbai,Maharashtra,2025-11-15,2026-07-19 08:00:00,CRM
+C00299,Customer 0299,customer299@example.com,VIP,Delhi,Delhi,2025-12-15,2026-07-20 08:00:00,CRM
+C00300,Customer 0300,customer300@example.com,STANDARD,Hyderabad,Telangana,2025-01-15,2026-07-21 08:00:00,CRM
+C00301,Customer 0301,customer301@example.com,PREMIUM,Bengaluru,Karnataka,2025-02-15,2026-07-22 08:00:00,CRM
+C00302,Customer 0302,customer302@example.com,VIP,Chennai,Tamil Nadu,2025-03-15,2026-07-23 08:00:00,CRM
+C00303,Customer 0303,customer303@example.com,STANDARD,Pune,Maharashtra,2025-04-15,2026-07-24 08:00:00,CRM
+C00304,Customer 0304,customer304@example.com,PREMIUM,Mumbai,Maharashtra,2025-05-15,2026-07-25 08:00:00,CRM
+C00305,Customer 0305,customer305@example.com,VIP,Delhi,Delhi,2025-06-15,2026-07-26 08:00:00,CRM
+C00306,Customer 0306,customer306@example.com,STANDARD,Hyderabad,Telangana,2025-07-15,2026-07-27 08:00:00,CRM
+C00307,Customer 0307,customer307@example.com,PREMIUM,Bengaluru,Karnataka,2025-08-15,2026-07-28 08:00:00,CRM
+C00308,Customer 0308,customer308@example.com,VIP,Chennai,Tamil Nadu,2025-09-15,2026-07-01 08:00:00,CRM
+C00309,Customer 0309,customer309@example.com,STANDARD,Pune,Maharashtra,2025-10-15,2026-07-02 08:00:00,CRM
+C00310,Customer 0310,customer310@example.com,PREMIUM,Mumbai,Maharashtra,2025-11-15,2026-07-03 08:00:00,CRM
+C00311,Customer 0311,customer311@example.com,VIP,Delhi,Delhi,2025-12-15,2026-07-04 08:00:00,CRM
+C00312,Customer 0312,customer312@example.com,STANDARD,Hyderabad,Telangana,2025-01-15,2026-07-05 08:00:00,CRM
+C00313,Customer 0313,customer313@example.com,PREMIUM,Bengaluru,Karnataka,2025-02-15,2026-07-06 08:00:00,CRM
+C00314,Customer 0314,customer314@example.com,VIP,Chennai,Tamil Nadu,2025-03-15,2026-07-07 08:00:00,CRM
+C00315,Customer 0315,customer315@example.com,STANDARD,Pune,Maharashtra,2025-04-15,2026-07-08 08:00:00,CRM
+C00316,Customer 0316,customer316@example.com,PREMIUM,Mumbai,Maharashtra,2025-05-15,2026-07-09 08:00:00,CRM
+C00317,Customer 0317,customer317@example.com,VIP,Delhi,Delhi,2025-06-15,2026-07-10 08:00:00,CRM
+C00318,Customer 0318,customer318@example.com,STANDARD,Hyderabad,Telangana,2025-07-15,2026-07-11 08:00:00,CRM
+C00319,Customer 0319,customer319@example.com,PREMIUM,Bengaluru,Karnataka,2025-08-15,2026-07-12 08:00:00,CRM
+C00320,Customer 0320,customer320@example.com,VIP,Chennai,Tamil Nadu,2025-09-15,2026-07-13 08:00:00,CRM
+C00321,Customer 0321,customer321@example.com,STANDARD,Pune,Maharashtra,2025-10-15,2026-07-14 08:00:00,CRM
+C00322,Customer 0322,customer322@example.com,PREMIUM,Mumbai,Maharashtra,2025-11-15,2026-07-15 08:00:00,CRM
+C00323,Customer 0323,customer323@example.com,VIP,Delhi,Delhi,2025-12-15,2026-07-16 08:00:00,CRM
+C00324,Customer 0324,customer324@example.com,STANDARD,Hyderabad,Telangana,2025-01-15,2026-07-17 08:00:00,CRM
+C00325,Customer 0325,customer325@example.com,PREMIUM,Bengaluru,Karnataka,2025-02-15,2026-07-18 08:00:00,CRM
+C00326,Customer 0326,customer326@example.com,VIP,Chennai,Tamil Nadu,2025-03-15,2026-07-19 08:00:00,CRM
+C00327,Customer 0327,customer327@example.com,STANDARD,Pune,Maharashtra,2025-04-15,2026-07-20 08:00:00,CRM
+C00328,Customer 0328,customer328@example.com,PREMIUM,Mumbai,Maharashtra,2025-05-15,2026-07-21 08:00:00,CRM
+C00329,Customer 0329,customer329@example.com,VIP,Delhi,Delhi,2025-06-15,2026-07-22 08:00:00,CRM
+C00330,Customer 0330,customer330@example.com,STANDARD,Hyderabad,Telangana,2025-07-15,2026-07-23 08:00:00,CRM
+C00331,Customer 0331,customer331@example.com,PREMIUM,Bengaluru,Karnataka,2025-08-15,2026-07-24 08:00:00,CRM
+C00332,Customer 0332,customer332@example.com,VIP,Chennai,Tamil Nadu,2025-09-15,2026-07-25 08:00:00,CRM
+C00333,Customer 0333,customer333@example.com,STANDARD,Pune,Maharashtra,2025-10-15,2026-07-26 08:00:00,CRM
+C00334,Customer 0334,customer334@example.com,PREMIUM,Mumbai,Maharashtra,2025-11-15,2026-07-27 08:00:00,CRM
+C00335,Customer 0335,customer335@example.com,VIP,Delhi,Delhi,2025-12-15,2026-07-28 08:00:00,CRM
+C00336,Customer 0336,customer336@example.com,STANDARD,Hyderabad,Telangana,2025-01-15,2026-07-01 08:00:00,CRM
+C00337,Customer 0337,customer337@example.com,PREMIUM,Bengaluru,Karnataka,2025-02-15,2026-07-02 08:00:00,CRM
+C00338,Customer 0338,customer338@example.com,VIP,Chennai,Tamil Nadu,2025-03-15,2026-07-03 08:00:00,CRM
+C00339,Customer 0339,customer339@example.com,STANDARD,Pune,Maharashtra,2025-04-15,2026-07-04 08:00:00,CRM
+C00340,Customer 0340,customer340@example.com,PREMIUM,Mumbai,Maharashtra,2025-05-15,2026-07-05 08:00:00,CRM
+C00341,Customer 0341,customer341@example.com,VIP,Delhi,Delhi,2025-06-15,2026-07-06 08:00:00,CRM
+C00342,Customer 0342,customer342@example.com,STANDARD,Hyderabad,Telangana,2025-07-15,2026-07-07 08:00:00,CRM
+C00343,Customer 0343,customer343@example.com,PREMIUM,Bengaluru,Karnataka,2025-08-15,2026-07-08 08:00:00,CRM
+C00344,Customer 0344,customer344@example.com,VIP,Chennai,Tamil Nadu,2025-09-15,2026-07-09 08:00:00,CRM
+C00345,Customer 0345,customer345@example.com,STANDARD,Pune,Maharashtra,2025-10-15,2026-07-10 08:00:00,CRM
+C00346,Customer 0346,customer346@example.com,PREMIUM,Mumbai,Maharashtra,2025-11-15,2026-07-11 08:00:00,CRM
+C00347,Customer 0347,customer347@example.com,VIP,Delhi,Delhi,2025-12-15,2026-07-12 08:00:00,CRM
+C00348,Customer 0348,customer348@example.com,STANDARD,Hyderabad,Telangana,2025-01-15,2026-07-13 08:00:00,CRM
+C00349,Customer 0349,customer349@example.com,PREMIUM,Bengaluru,Karnataka,2025-02-15,2026-07-14 08:00:00,CRM
+C00350,Customer 0350,customer350@example.com,VIP,Chennai,Tamil Nadu,2025-03-15,2026-07-15 08:00:00,CRM
+C00351,Customer 0351,customer351@example.com,STANDARD,Pune,Maharashtra,2025-04-15,2026-07-16 08:00:00,CRM
+C00352,Customer 0352,customer352@example.com,PREMIUM,Mumbai,Maharashtra,2025-05-15,2026-07-17 08:00:00,CRM
+C00353,Customer 0353,customer353@example.com,VIP,Delhi,Delhi,2025-06-15,2026-07-18 08:00:00,CRM
+C00354,Customer 0354,customer354@example.com,STANDARD,Hyderabad,Telangana,2025-07-15,2026-07-19 08:00:00,CRM
+C00355,Customer 0355,customer355@example.com,PREMIUM,Bengaluru,Karnataka,2025-08-15,2026-07-20 08:00:00,CRM
+C00356,Customer 0356,customer356@example.com,VIP,Chennai,Tamil Nadu,2025-09-15,2026-07-21 08:00:00,CRM
+C00357,Customer 0357,customer357@example.com,STANDARD,Pune,Maharashtra,2025-10-15,2026-07-22 08:00:00,CRM
+C00358,Customer 0358,customer358@example.com,PREMIUM,Mumbai,Maharashtra,2025-11-15,2026-07-23 08:00:00,CRM
+C00359,Customer 0359,customer359@example.com,VIP,Delhi,Delhi,2025-12-15,2026-07-24 08:00:00,CRM
+C00360,Customer 0360,customer360@example.com,STANDARD,Hyderabad,Telangana,2025-01-15,2026-07-25 08:00:00,CRM
+C00361,Customer 0361,customer361@example.com,PREMIUM,Bengaluru,Karnataka,2025-02-15,2026-07-26 08:00:00,CRM
+C00362,Customer 0362,customer362@example.com,VIP,Chennai,Tamil Nadu,2025-03-15,2026-07-27 08:00:00,CRM
+C00363,Customer 0363,customer363@example.com,STANDARD,Pune,Maharashtra,2025-04-15,2026-07-28 08:00:00,CRM
+C00364,Customer 0364,customer364@example.com,PREMIUM,Mumbai,Maharashtra,2025-05-15,2026-07-01 08:00:00,CRM
+C00365,Customer 0365,customer365@example.com,VIP,Delhi,Delhi,2025-06-15,2026-07-02 08:00:00,CRM
+C00366,Customer 0366,customer366@example.com,STANDARD,Hyderabad,Telangana,2025-07-15,2026-07-03 08:00:00,CRM
+C00367,Customer 0367,customer367@example.com,PREMIUM,Bengaluru,Karnataka,2025-08-15,2026-07-04 08:00:00,CRM
+C00368,Customer 0368,customer368@example.com,VIP,Chennai,Tamil Nadu,2025-09-15,2026-07-05 08:00:00,CRM
+C00369,Customer 0369,customer369@example.com,STANDARD,Pune,Maharashtra,2025-10-15,2026-07-06 08:00:00,CRM
+C00370,Customer 0370,customer370@example.com,PREMIUM,Mumbai,Maharashtra,2025-11-15,2026-07-07 08:00:00,CRM
+C00371,Customer 0371,customer371@example.com,VIP,Delhi,Delhi,2025-12-15,2026-07-08 08:00:00,CRM
+C00372,Customer 0372,customer372@example.com,STANDARD,Hyderabad,Telangana,2025-01-15,2026-07-09 08:00:00,CRM
+C00373,Customer 0373,customer373@example.com,PREMIUM,Bengaluru,Karnataka,2025-02-15,2026-07-10 08:00:00,CRM
+C00374,Customer 0374,customer374@example.com,VIP,Chennai,Tamil Nadu,2025-03-15,2026-07-11 08:00:00,CRM
+C00375,Customer 0375,customer375@example.com,STANDARD,Pune,Maharashtra,2025-04-15,2026-07-12 08:00:00,CRM
+C00376,Customer 0376,customer376@example.com,PREMIUM,Mumbai,Maharashtra,2025-05-15,2026-07-13 08:00:00,CRM
+C00377,Customer 0377,customer377@example.com,VIP,Delhi,Delhi,2025-06-15,2026-07-14 08:00:00,CRM
+C00378,Customer 0378,customer378@example.com,STANDARD,Hyderabad,Telangana,2025-07-15,2026-07-15 08:00:00,CRM
+C00379,Customer 0379,customer379@example.com,PREMIUM,Bengaluru,Karnataka,2025-08-15,2026-07-16 08:00:00,CRM
+C00380,Customer 0380,customer380@example.com,VIP,Chennai,Tamil Nadu,2025-09-15,2026-07-17 08:00:00,CRM
+C00381,Customer 0381,customer381@example.com,STANDARD,Pune,Maharashtra,2025-10-15,2026-07-18 08:00:00,CRM
+C00382,Customer 0382,customer382@example.com,PREMIUM,Mumbai,Maharashtra,2025-11-15,2026-07-19 08:00:00,CRM
+C00383,Customer 0383,customer383@example.com,VIP,Delhi,Delhi,2025-12-15,2026-07-20 08:00:00,CRM
+C00384,Customer 0384,customer384@example.com,STANDARD,Hyderabad,Telangana,2025-01-15,2026-07-21 08:00:00,CRM
+C00385,Customer 0385,customer385@example.com,PREMIUM,Bengaluru,Karnataka,2025-02-15,2026-07-22 08:00:00,CRM
+C00386,Customer 0386,customer386@example.com,VIP,Chennai,Tamil Nadu,2025-03-15,2026-07-23 08:00:00,CRM
+C00387,Customer 0387,customer387@example.com,STANDARD,Pune,Maharashtra,2025-04-15,2026-07-24 08:00:00,CRM
+C00388,Customer 0388,customer388@example.com,PREMIUM,Mumbai,Maharashtra,2025-05-15,2026-07-25 08:00:00,CRM
+C00389,Customer 0389,customer389@example.com,VIP,Delhi,Delhi,2025-06-15,2026-07-26 08:00:00,CRM
+C00390,Customer 0390,customer390@example.com,STANDARD,Hyderabad,Telangana,2025-07-15,2026-07-27 08:00:00,CRM
+C00391,Customer 0391,customer391@example.com,PREMIUM,Bengaluru,Karnataka,2025-08-15,2026-07-28 08:00:00,CRM
+C00392,Customer 0392,customer392@example.com,VIP,Chennai,Tamil Nadu,2025-09-15,2026-07-01 08:00:00,CRM
+C00393,Customer 0393,customer393@example.com,STANDARD,Pune,Maharashtra,2025-10-15,2026-07-02 08:00:00,CRM
+C00394,Customer 0394,customer394@example.com,PREMIUM,Mumbai,Maharashtra,2025-11-15,2026-07-03 08:00:00,CRM
+C00395,Customer 0395,customer395@example.com,VIP,Delhi,Delhi,2025-12-15,2026-07-04 08:00:00,CRM
+C00396,Customer 0396,customer396@example.com,STANDARD,Hyderabad,Telangana,2025-01-15,2026-07-05 08:00:00,CRM
+C00397,Customer 0397,customer397@example.com,PREMIUM,Bengaluru,Karnataka,2025-02-15,2026-07-06 08:00:00,CRM
+C00398,Customer 0398,customer398@example.com,VIP,Chennai,Tamil Nadu,2025-03-15,2026-07-07 08:00:00,CRM
+C00399,Customer 0399,customer399@example.com,STANDARD,Pune,Maharashtra,2025-04-15,2026-07-08 08:00:00,CRM
+C00400,Customer 0400,customer400@example.com,PREMIUM,Mumbai,Maharashtra,2025-05-15,2026-07-09 08:00:00,CRM
+C00401,Customer 0401,customer401@example.com,VIP,Delhi,Delhi,2025-06-15,2026-07-10 08:00:00,CRM
+C00402,Customer 0402,customer402@example.com,STANDARD,Hyderabad,Telangana,2025-07-15,2026-07-11 08:00:00,CRM
+C00403,Customer 0403,customer403@example.com,PREMIUM,Bengaluru,Karnataka,2025-08-15,2026-07-12 08:00:00,CRM
+C00404,Customer 0404,customer404@example.com,VIP,Chennai,Tamil Nadu,2025-09-15,2026-07-13 08:00:00,CRM
+C00405,Customer 0405,customer405@example.com,STANDARD,Pune,Maharashtra,2025-10-15,2026-07-14 08:00:00,CRM
+C00406,Customer 0406,customer406@example.com,PREMIUM,Mumbai,Maharashtra,2025-11-15,2026-07-15 08:00:00,CRM
+C00407,Customer 0407,customer407@example.com,VIP,Delhi,Delhi,2025-12-15,2026-07-16 08:00:00,CRM
+C00408,Customer 0408,customer408@example.com,STANDARD,Hyderabad,Telangana,2025-01-15,2026-07-17 08:00:00,CRM
+C00409,Customer 0409,customer409@example.com,PREMIUM,Bengaluru,Karnataka,2025-02-15,2026-07-18 08:00:00,CRM
+C00410,Customer 0410,customer410@example.com,VIP,Chennai,Tamil Nadu,2025-03-15,2026-07-19 08:00:00,CRM
+C00411,Customer 0411,customer411@example.com,STANDARD,Pune,Maharashtra,2025-04-15,2026-07-20 08:00:00,CRM
+C00412,Customer 0412,customer412@example.com,PREMIUM,Mumbai,Maharashtra,2025-05-15,2026-07-21 08:00:00,CRM
+C00413,Customer 0413,customer413@example.com,VIP,Delhi,Delhi,2025-06-15,2026-07-22 08:00:00,CRM
+C00414,Customer 0414,customer414@example.com,STANDARD,Hyderabad,Telangana,2025-07-15,2026-07-23 08:00:00,CRM
+C00415,Customer 0415,customer415@example.com,PREMIUM,Bengaluru,Karnataka,2025-08-15,2026-07-24 08:00:00,CRM
+C00416,Customer 0416,customer416@example.com,VIP,Chennai,Tamil Nadu,2025-09-15,2026-07-25 08:00:00,CRM
+C00417,Customer 0417,customer417@example.com,STANDARD,Pune,Maharashtra,2025-10-15,2026-07-26 08:00:00,CRM
+C00418,Customer 0418,customer418@example.com,PREMIUM,Mumbai,Maharashtra,2025-11-15,2026-07-27 08:00:00,CRM
+C00419,Customer 0419,customer419@example.com,VIP,Delhi,Delhi,2025-12-15,2026-07-28 08:00:00,CRM
+C00420,Customer 0420,customer420@example.com,STANDARD,Hyderabad,Telangana,2025-01-15,2026-07-01 08:00:00,CRM
+C00421,Customer 0421,customer421@example.com,PREMIUM,Bengaluru,Karnataka,2025-02-15,2026-07-02 08:00:00,CRM
+C00422,Customer 0422,customer422@example.com,VIP,Chennai,Tamil Nadu,2025-03-15,2026-07-03 08:00:00,CRM
+C00423,Customer 0423,customer423@example.com,STANDARD,Pune,Maharashtra,2025-04-15,2026-07-04 08:00:00,CRM
+C00424,Customer 0424,customer424@example.com,PREMIUM,Mumbai,Maharashtra,2025-05-15,2026-07-05 08:00:00,CRM
+C00425,Customer 0425,customer425@example.com,VIP,Delhi,Delhi,2025-06-15,2026-07-06 08:00:00,CRM
+C00426,Customer 0426,customer426@example.com,STANDARD,Hyderabad,Telangana,2025-07-15,2026-07-07 08:00:00,CRM
+C00427,Customer 0427,customer427@example.com,PREMIUM,Bengaluru,Karnataka,2025-08-15,2026-07-08 08:00:00,CRM
+C00428,Customer 0428,customer428@example.com,VIP,Chennai,Tamil Nadu,2025-09-15,2026-07-09 08:00:00,CRM
+C00429,Customer 0429,customer429@example.com,STANDARD,Pune,Maharashtra,2025-10-15,2026-07-10 08:00:00,CRM
+C00430,Customer 0430,customer430@example.com,PREMIUM,Mumbai,Maharashtra,2025-11-15,2026-07-11 08:00:00,CRM
+C00431,Customer 0431,customer431@example.com,VIP,Delhi,Delhi,2025-12-15,2026-07-12 08:00:00,CRM
+C00432,Customer 0432,customer432@example.com,STANDARD,Hyderabad,Telangana,2025-01-15,2026-07-13 08:00:00,CRM
+C00433,Customer 0433,customer433@example.com,PREMIUM,Bengaluru,Karnataka,2025-02-15,2026-07-14 08:00:00,CRM
+C00434,Customer 0434,customer434@example.com,VIP,Chennai,Tamil Nadu,2025-03-15,2026-07-15 08:00:00,CRM
+C00435,Customer 0435,customer435@example.com,STANDARD,Pune,Maharashtra,2025-04-15,2026-07-16 08:00:00,CRM
+C00436,Customer 0436,customer436@example.com,PREMIUM,Mumbai,Maharashtra,2025-05-15,2026-07-17 08:00:00,CRM
+C00437,Customer 0437,customer437@example.com,VIP,Delhi,Delhi,2025-06-15,2026-07-18 08:00:00,CRM
+C00438,Customer 0438,customer438@example.com,STANDARD,Hyderabad,Telangana,2025-07-15,2026-07-19 08:00:00,CRM
+C00439,Customer 0439,customer439@example.com,PREMIUM,Bengaluru,Karnataka,2025-08-15,2026-07-20 08:00:00,CRM
+C00440,Customer 0440,customer440@example.com,VIP,Chennai,Tamil Nadu,2025-09-15,2026-07-21 08:00:00,CRM
+C00441,Customer 0441,customer441@example.com,STANDARD,Pune,Maharashtra,2025-10-15,2026-07-22 08:00:00,CRM
+C00442,Customer 0442,customer442@example.com,PREMIUM,Mumbai,Maharashtra,2025-11-15,2026-07-23 08:00:00,CRM
+C00443,Customer 0443,customer443@example.com,VIP,Delhi,Delhi,2025-12-15,2026-07-24 08:00:00,CRM
+C00444,Customer 0444,customer444@example.com,STANDARD,Hyderabad,Telangana,2025-01-15,2026-07-25 08:00:00,CRM
+C00445,Customer 0445,customer445@example.com,PREMIUM,Bengaluru,Karnataka,2025-02-15,2026-07-26 08:00:00,CRM
+C00446,Customer 0446,customer446@example.com,VIP,Chennai,Tamil Nadu,2025-03-15,2026-07-27 08:00:00,CRM
+C00447,Customer 0447,customer447@example.com,STANDARD,Pune,Maharashtra,2025-04-15,2026-07-28 08:00:00,CRM
+C00448,Customer 0448,customer448@example.com,PREMIUM,Mumbai,Maharashtra,2025-05-15,2026-07-01 08:00:00,CRM
+C00449,Customer 0449,customer449@example.com,VIP,Delhi,Delhi,2025-06-15,2026-07-02 08:00:00,CRM
+C00450,Customer 0450,customer450@example.com,STANDARD,Hyderabad,Telangana,2025-07-15,2026-07-03 08:00:00,CRM
+C00451,Customer 0451,customer451@example.com,PREMIUM,Bengaluru,Karnataka,2025-08-15,2026-07-04 08:00:00,CRM
+C00452,Customer 0452,customer452@example.com,VIP,Chennai,Tamil Nadu,2025-09-15,2026-07-05 08:00:00,CRM
+C00453,Customer 0453,customer453@example.com,STANDARD,Pune,Maharashtra,2025-10-15,2026-07-06 08:00:00,CRM
+C00454,Customer 0454,customer454@example.com,PREMIUM,Mumbai,Maharashtra,2025-11-15,2026-07-07 08:00:00,CRM
+C00455,Customer 0455,customer455@example.com,VIP,Delhi,Delhi,2025-12-15,2026-07-08 08:00:00,CRM
+C00456,Customer 0456,customer456@example.com,STANDARD,Hyderabad,Telangana,2025-01-15,2026-07-09 08:00:00,CRM
+C00457,Customer 0457,customer457@example.com,PREMIUM,Bengaluru,Karnataka,2025-02-15,2026-07-10 08:00:00,CRM
+C00458,Customer 0458,customer458@example.com,VIP,Chennai,Tamil Nadu,2025-03-15,2026-07-11 08:00:00,CRM
+C00459,Customer 0459,customer459@example.com,STANDARD,Pune,Maharashtra,2025-04-15,2026-07-12 08:00:00,CRM
+C00460,Customer 0460,customer460@example.com,PREMIUM,Mumbai,Maharashtra,2025-05-15,2026-07-13 08:00:00,CRM
+C00461,Customer 0461,customer461@example.com,VIP,Delhi,Delhi,2025-06-15,2026-07-14 08:00:00,CRM
+C00462,Customer 0462,customer462@example.com,STANDARD,Hyderabad,Telangana,2025-07-15,2026-07-15 08:00:00,CRM
+C00463,Customer 0463,customer463@example.com,PREMIUM,Bengaluru,Karnataka,2025-08-15,2026-07-16 08:00:00,CRM
+C00464,Customer 0464,customer464@example.com,VIP,Chennai,Tamil Nadu,2025-09-15,2026-07-17 08:00:00,CRM
+C00465,Customer 0465,customer465@example.com,STANDARD,Pune,Maharashtra,2025-10-15,2026-07-18 08:00:00,CRM
+C00466,Customer 0466,customer466@example.com,PREMIUM,Mumbai,Maharashtra,2025-11-15,2026-07-19 08:00:00,CRM
+C00467,Customer 0467,customer467@example.com,VIP,Delhi,Delhi,2025-12-15,2026-07-20 08:00:00,CRM
+C00468,Customer 0468,customer468@example.com,STANDARD,Hyderabad,Telangana,2025-01-15,2026-07-21 08:00:00,CRM
+C00469,Customer 0469,customer469@example.com,PREMIUM,Bengaluru,Karnataka,2025-02-15,2026-07-22 08:00:00,CRM
+C00470,Customer 0470,customer470@example.com,VIP,Chennai,Tamil Nadu,2025-03-15,2026-07-23 08:00:00,CRM
+C00471,Customer 0471,customer471@example.com,STANDARD,Pune,Maharashtra,2025-04-15,2026-07-24 08:00:00,CRM
+C00472,Customer 0472,customer472@example.com,PREMIUM,Mumbai,Maharashtra,2025-05-15,2026-07-25 08:00:00,CRM
+C00473,Customer 0473,customer473@example.com,VIP,Delhi,Delhi,2025-06-15,2026-07-26 08:00:00,CRM
+C00474,Customer 0474,customer474@example.com,STANDARD,Hyderabad,Telangana,2025-07-15,2026-07-27 08:00:00,CRM
+C00475,Customer 0475,customer475@example.com,PREMIUM,Bengaluru,Karnataka,2025-08-15,2026-07-28 08:00:00,CRM
+C00476,Customer 0476,customer476@example.com,VIP,Chennai,Tamil Nadu,2025-09-15,2026-07-01 08:00:00,CRM
+C00477,Customer 0477,customer477@example.com,STANDARD,Pune,Maharashtra,2025-10-15,2026-07-02 08:00:00,CRM
+C00478,Customer 0478,customer478@example.com,PREMIUM,Mumbai,Maharashtra,2025-11-15,2026-07-03 08:00:00,CRM
+C00479,Customer 0479,customer479@example.com,VIP,Delhi,Delhi,2025-12-15,2026-07-04 08:00:00,CRM
+C00480,Customer 0480,customer480@example.com,STANDARD,Hyderabad,Telangana,2025-01-15,2026-07-05 08:00:00,CRM
+C00481,Customer 0481,customer481@example.com,PREMIUM,Bengaluru,Karnataka,2025-02-15,2026-07-06 08:00:00,CRM
+C00482,Customer 0482,customer482@example.com,VIP,Chennai,Tamil Nadu,2025-03-15,2026-07-07 08:00:00,CRM
+C00483,Customer 0483,customer483@example.com,STANDARD,Pune,Maharashtra,2025-04-15,2026-07-08 08:00:00,CRM
+C00484,Customer 0484,customer484@example.com,PREMIUM,Mumbai,Maharashtra,2025-05-15,2026-07-09 08:00:00,CRM
+C00485,Customer 0485,customer485@example.com,VIP,Delhi,Delhi,2025-06-15,2026-07-10 08:00:00,CRM
+C00486,Customer 0486,customer486@example.com,STANDARD,Hyderabad,Telangana,2025-07-15,2026-07-11 08:00:00,CRM
+C00487,Customer 0487,customer487@example.com,PREMIUM,Bengaluru,Karnataka,2025-08-15,2026-07-12 08:00:00,CRM
+C00488,Customer 0488,customer488@example.com,VIP,Chennai,Tamil Nadu,2025-09-15,2026-07-13 08:00:00,CRM
+C00489,Customer 0489,customer489@example.com,STANDARD,Pune,Maharashtra,2025-10-15,2026-07-14 08:00:00,CRM
+C00490,Customer 0490,customer490@example.com,PREMIUM,Mumbai,Maharashtra,2025-11-15,2026-07-15 08:00:00,CRM
+C00491,Customer 0491,customer491@example.com,VIP,Delhi,Delhi,2025-12-15,2026-07-16 08:00:00,CRM
+C00492,Customer 0492,customer492@example.com,STANDARD,Hyderabad,Telangana,2025-01-15,2026-07-17 08:00:00,CRM
+C00493,Customer 0493,customer493@example.com,PREMIUM,Bengaluru,Karnataka,2025-02-15,2026-07-18 08:00:00,CRM
+C00494,Customer 0494,customer494@example.com,VIP,Chennai,Tamil Nadu,2025-03-15,2026-07-19 08:00:00,CRM
+C00495,Customer 0495,customer495@example.com,STANDARD,Pune,Maharashtra,2025-04-15,2026-07-20 08:00:00,CRM
+C00496,Customer 0496,customer496@example.com,PREMIUM,Mumbai,Maharashtra,2025-05-15,2026-07-21 08:00:00,CRM
+C00497,Customer 0497,customer497@example.com,VIP,Delhi,Delhi,2025-06-15,2026-07-22 08:00:00,CRM
+C00498,Customer 0498,customer498@example.com,STANDARD,Hyderabad,Telangana,2025-07-15,2026-07-23 08:00:00,CRM
+C00499,Customer 0499,customer499@example.com,PREMIUM,Bengaluru,Karnataka,2025-08-15,2026-07-24 08:00:00,CRM
+C00500,Customer 0500,customer500@example.com,VIP,Chennai,Tamil Nadu,2025-09-15,2026-07-25 08:00:00,CRM
