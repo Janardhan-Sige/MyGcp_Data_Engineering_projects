@@ -1,447 +1,378 @@
-# GCP Data Engineering End-to-End Interview Project
+# GCP Data Engineering — 4-Year Experience Interview Project
 
-> A hands-on Google Cloud data engineering project for learning, practice, and interview preparation.
+> Production-style e-commerce data platform built with Python, SQL and Google Cloud.
+>
+> This repository is intentionally **not a beginner tutorial**. It is designed to demonstrate the decisions, failure handling, data modeling and operational thinking expected from a Data Engineer with around 4 years of experience.
 
-## 🎯 Project objective
+## Business scenario
 
-Build and understand a realistic **end-to-end GCP data platform** using only **Python and SQL** for application and transformation logic.
+Assume an e-commerce company receives orders from web, mobile, marketplace and physical-store channels.
 
-The project demonstrates both:
+The platform must support:
 
-- **Batch processing**
-- **Real-time / streaming processing**
+- Daily batch ingestion of order-line data
+- Near-real-time order lifecycle events
+- Data quality and quarantine
+- Deterministic deduplication
+- Slowly Changing Dimension Type 2 for customer history
+- Partitioned and clustered BigQuery warehouse tables
+- Incremental transformations
+- Auditability and operational metrics
+- Analytics-ready marts
+- Replayable streaming events
+- Airflow/Cloud Composer orchestration
+- Dataflow batch and streaming processing
+- SQL-first warehouse transformations
 
-Core services:
+## Architecture
 
-**Cloud Storage • Cloud Composer / Airflow • Dataflow / Apache Beam • Pub/Sub • BigQuery**
+![Enterprise architecture](docs/screenshots/end_to_end_architecture.svg)
 
----
+### Batch
 
-## 🏗️ End-to-End Architecture
+Cloud Storage
+→ Cloud Composer
+→ Dataflow batch
+→ retail_raw
+→ dedupe + DQ
+→ retail_dw
+→ retail_mart
+→ BI / analytics
 
-![End-to-End Architecture](docs/screenshots/end_to_end_architecture.svg)
+### Streaming
 
-### Overall flow
+Application events
+→ Pub/Sub
+→ Dataflow streaming
+→ event-time processing
+→ BigQuery Storage Write API
+→ retail_raw
+→ streaming KPI marts
 
-**Batch**
+Google's current Dataflow guidance recommends the Storage Write API for modern streaming-to-BigQuery workloads, while batch workloads can use file loads depending on scale and workload characteristics. This project is structured to demonstrate those production decisions rather than relying on legacy streaming inserts.
 
-Cloud Storage → Cloud Composer / Airflow → Dataflow Batch → BigQuery → SQL Analytics
+## Realistic screenshots
 
-**Streaming**
+### BigQuery warehouse table
 
-Python Producer → Pub/Sub → Dataflow Streaming → BigQuery → SQL Analytics
+![BigQuery table preview](docs/screenshots/bigquery_table_preview.svg)
 
----
+The screenshot-style view shows the type of table a reviewer should expect to see in BigQuery: typed columns, realistic values, partitioning, clustering and business fields.
 
-## 📸 Batch Processing Flow
+### Dataflow streaming job
 
-![Batch Processing Flow](docs/screenshots/batch_flow.svg)
+![Dataflow monitoring](docs/screenshots/dataflow_job_monitor.svg)
 
-### What happens?
+The monitoring view demonstrates the operational metrics that matter in an interview: worker count, throughput, backlog, late data, DLQ rate and pipeline stages.
 
-1. Sample order data is stored as CSV.
-2. The CSV is uploaded to **Cloud Storage**.
-3. **Cloud Composer / Airflow** schedules the batch workflow.
-4. Airflow launches the **Python Apache Beam pipeline**.
-5. **Dataflow** reads and transforms the data.
-6. Cleaned records are written to **BigQuery**.
-7. SQL creates trusted analytical tables and KPIs.
+### Cloud Composer DAG
 
----
+![Composer DAG](docs/screenshots/composer_dag.svg)
 
-## 📸 Streaming Processing Flow
+The DAG demonstrates dependency-driven orchestration rather than a single task that simply starts Dataflow.
 
-![Streaming Processing Flow](docs/screenshots/streaming_flow.svg)
+> These are documentation screenshots/console-style visualizations created for this repository. The metrics shown are illustrative; they are not screenshots from a live production GCP account.
 
-### What happens?
+## Dataset scale
 
-1. The Python producer creates order events.
-2. Events are published to **Pub/Sub**.
-3. **Dataflow Streaming** continuously consumes the subscription.
-4. Python transformations decode and enrich each event.
-5. Events are written to **BigQuery**.
-6. SQL can then be used for real-time-oriented analytics.
+This repository now uses a **medium-sized synthetic workload**, not a six-row demo.
 
----
+| Dataset | Volume | Format | Role |
+|---|---:|---|---|
+| Orders | 10,000 order-line records | CSV | Batch fact ingestion |
+| Customers | 500 records | CSV | SCD Type 2 dimension |
+| Products | 120 records | CSV | Conformed product dimension |
+| Streaming events | 5,000 events | JSONL | Pub/Sub replay workload |
+| Order files | 4 partitions | CSV | Simulates multiple landing objects |
+| Event files | 2 partitions | JSONL | Simulates replay/chunked event delivery |
 
-# 📁 Repository File Guide
+All data is synthetic and deterministic. It is safe to publish and is designed to behave like an e-commerce workload.
 
-## 1. `config/config.py`
+Dataset documentation: data/README.md  
+Data dictionary: docs/data_dictionary.md  
+Generator: data/generate_medium_dataset.py
 
-Central configuration for:
+## Warehouse design
 
-- GCP project ID
-- GCP region
-- Cloud Storage bucket
-- Pub/Sub topic/subscription
-- BigQuery dataset
+The project uses explicit layers instead of putting every transformation into one BigQuery table.
 
-**Interview concept:** configuration management and runtime parameters.
+| Layer | Example | Responsibility |
+|---|---|---|
+| RAW | retail_raw.raw_order_lines | Immutable source landing |
+| STG | retail_stg.stg_order_lines_deduped | Typing, standardization, dedupe |
+| DW | retail_dw.dim_customer | Historical customer state |
+| DW | retail_dw.dim_product | Product master |
+| DW | retail_dw.fct_order_line | Transaction fact |
+| MART | retail_mart.customer_360 | Customer analytics |
+| MART | retail_mart.daily_commercial_kpis | Executive KPIs |
+| OPS | retail_ops.pipeline_run_audit | Pipeline observability |
+| OPS | retail_ops.rejected_order_lines | Data-quality quarantine |
 
----
+This separation makes the pipeline easier to backfill, troubleshoot and explain during an interview.
 
-## 2. `data/batch/orders.csv`
+## Data quality strategy
 
-Small sample batch dataset containing:
+Bad data should not simply disappear.
 
-- Order ID
-- Customer ID
-- Order timestamp
-- Product
-- Quantity
-- Price
-- Status
-- City
+The project demonstrates checks for:
 
-This makes the repository easy to understand without requiring a large external dataset.
+- Missing business keys
+- Invalid quantity
+- Negative price
+- Invalid status
+- Duplicate order-line keys
+- Standardized status/channel/city values
+- Source-to-target row-count reconciliation
+- Rejected-row monitoring
 
----
+Failed records are written to a quarantine table with a failure reason. The pipeline can then continue for valid records while the rejected population is investigated.
 
-## 3. `data/streaming/order_events.json`
+File: sql/transformations/data_quality_orders.sql
 
-Sample JSON events used by the streaming producer.
+## Deduplication
 
-Each event represents an order arriving in real time.
+The staging layer uses ROW_NUMBER over the business key:
 
----
+- Partition by order_line_id
+- Order by source updated_at
+- Use ingestion timestamp as a deterministic tie-breaker
 
-# ⚙️ Dataflow / Apache Beam
+This is important for replayed files, retried jobs and late source updates.
 
-## 4. `dataflow/common/transforms.py`
+File: sql/transformations/deduplicate_orders.sql
 
-Contains reusable Python transformations.
+## SCD Type 2
 
-Examples:
+Customer attributes are modeled historically.
 
-- Parse CSV records
-- Clean values
-- Calculate order amount
-- Decode Pub/Sub JSON events
+Tracked versions use:
 
-This file demonstrates how to keep transformation logic reusable.
+- effective_from
+- effective_to
+- is_current
+- record_hash
 
----
+This supports point-in-time analysis instead of overwriting customer history.
 
-## 5. `dataflow/batch/batch_orders_pipeline.py`
+File: sql/dimensions/customer_scd2_merge.sql
 
-The main **batch Dataflow pipeline**.
+## BigQuery performance design
 
-Flow:
+Large analytical tables are partitioned and clustered based on access patterns.
 
-`Cloud Storage CSV → Parse → Clean → BigQuery`
+The fact table is:
 
-Important concepts:
+- Partitioned by order date
+- Clustered by customer_id, product_id and status
 
-- `PipelineOptions`
-- `PCollection`
-- `ParDo`
-- `BigQueryIO`
-- Error handling
-- Batch processing
+The marts use business-date partitioning where appropriate.
 
----
+The goal is to support partition pruning and block pruning rather than relying on SELECT * queries across the entire warehouse.
 
-## 6. `dataflow/streaming/streaming_orders_pipeline.py`
+Google's documentation recommends partitioning when queries can benefit from scanning only relevant partitions and clustering when filters/aggregations repeatedly use high-cardinality columns.
 
-The main **streaming Dataflow pipeline**.
+## Batch pipeline
 
-Flow:
+Main code:
 
-`Pub/Sub → Decode → Transform → BigQuery`
+dataflow/batch/batch_orders_pipeline.py
 
-Important concepts:
+Production flow:
 
-- Unbounded data
-- Pub/Sub source
-- Streaming mode
-- `ParDo`
-- BigQuery sink
-- Error handling / dead-letter design
+1. Detect/land multiple Cloud Storage files
+2. Read bounded data with Apache Beam
+3. Parse and type source fields
+4. Apply validation
+5. Write raw/accepted data
+6. Run SQL deduplication
+7. Run data-quality gate
+8. Merge dimensions
+9. Build fact table
+10. Refresh analytical marts
+11. Record pipeline audit metrics
 
----
+Composer DAG:
 
-# 🔄 Airflow / Cloud Composer
+dags/batch_orders_dag.py
 
-## 7. `dags/batch_orders_dag.py`
+## Streaming pipeline
 
-Schedules the batch Dataflow pipeline.
+Main code:
 
-It demonstrates:
+dataflow/streaming/streaming_orders_pipeline.py
 
-- DAG definition
-- Scheduling
-- Runtime configuration
-- Dataflow orchestration
-- Job naming
+Production flow:
 
-**Key interview point:**
+1. Application publishes JSON events
+2. Pub/Sub buffers and decouples producers/consumers
+3. Dataflow consumes the subscription
+4. Parse and validate events
+5. Separate invalid records to DLQ/quarantine
+6. Apply event-time windowing
+7. Write to BigQuery
+8. Build hourly/event KPIs
+9. Monitor backlog and late-data behavior
 
-> Airflow is the orchestration layer; Dataflow is the distributed processing engine.
+Google documents the Pub/Sub → Dataflow → BigQuery pattern as a standard streaming architecture. The repository extends that pattern with operational controls and warehouse modeling.
 
----
+## SQL portfolio
 
-## 8. `dags/streaming_pipeline_dag.py`
+### DDL
 
-Demonstrates deployment of the long-running streaming Dataflow job.
+- sql/ddl/create_datasets.sql
+- sql/ddl/create_tables.sql
+- sql/ddl/create_enterprise_model.sql
 
-The DAG is manually triggered because a streaming Dataflow job normally remains active instead of running once per day.
+### Transformations
 
----
+- sql/transformations/clean_orders.sql
+- sql/transformations/deduplicate_orders.sql
+- sql/transformations/data_quality_orders.sql
+- sql/transformations/daily_sales.sql
 
-# 📬 Pub/Sub Producer
+### Dimensions
 
-## 9. `producer/publish_order_events.py`
+- sql/dimensions/customer_scd2_merge.sql
 
-Python program that publishes JSON events to Pub/Sub.
+### Analytics marts
 
-Flow:
+- sql/marts/customer_360.sql
+- sql/marts/daily_commercial_kpis.sql
+- sql/streaming/sessionized_orders.sql
 
-`JSON → Python → Pub/Sub Topic → Dataflow`
+### Operations
 
-This is useful for understanding how an application can become the source of a streaming data platform.
+- sql/operations/pipeline_audit.sql
 
----
+## Airflow / Cloud Composer
 
-# 🗄️ BigQuery SQL
+The orchestration layer should own workflow dependencies, retries, scheduling, quality gates and operational sequencing.
 
-## 10. `sql/ddl/create_datasets.sql`
+It should not perform distributed row-level processing itself.
 
-Creates the BigQuery dataset.
+Typical dependency chain:
 
-**Concepts:**
+detect files
+→ start Dataflow
+→ validate landing
+→ deduplicate
+→ DQ gate
+→ SCD2 merge
+→ fact build
+→ marts
+→ audit
+→ notification
 
-- Dataset
-- Region
-- Metadata description
+This demonstrates the distinction between:
 
----
+**Airflow = orchestration**
 
-## 11. `sql/ddl/create_tables.sql`
+**Dataflow = distributed processing**
 
-Creates the raw batch and streaming tables.
+**BigQuery = analytical warehouse**
 
-Demonstrates:
+## Python design
 
-- Data types
-- Partitioning
-- Clustering
-- Raw/landing layer design
+Python is used for:
 
----
+- Apache Beam pipelines
+- Pub/Sub producer
+- Configuration
+- Dataset generation
+- Reusable transformations
+- Unit tests
 
-## 12. `sql/transformations/clean_orders.sql`
+SQL is used for:
 
-Creates a trusted order table.
+- Warehouse DDL
+- Deduplication
+- Data quality
+- SCD Type 2
+- Fact construction
+- Analytics marts
+- Operational reporting
 
-Demonstrates:
+No Spark or Java is required for the core project.
 
-- Data cleansing
-- `TRIM`
-- `UPPER`
-- `INITCAP`
-- Validation
-- Derived metrics
+## Interview-level scenarios covered
 
----
-
-## 13. `sql/transformations/daily_sales.sql`
-
-Calculates daily business KPIs.
-
-Examples:
-
-- Total orders
-- Completed orders
-- Cancelled orders
-- Revenue
-- Average order value
-
----
-
-## 14. `sql/analytics/customer_analysis.sql`
-
-Customer-level analytics using:
-
-- CTEs
-- Aggregations
-- `DENSE_RANK()`
-- Customer segmentation
-- Window functions
-
----
-
-## 15. `sql/analytics/revenue_analysis.sql`
-
-Product revenue analysis.
-
-Demonstrates:
-
-- Aggregation
-- Window functions
-- Revenue contribution percentage
-- `SAFE_DIVIDE`
-
----
-
-# 🧪 Testing
-
-## 16. `tests/test_transforms.py`
-
-Unit tests for Python transformation logic.
-
-The tests demonstrate the basic:
-
-**Arrange → Act → Assert**
-
-pattern without requiring a live GCP environment.
-
----
-
-# 🛠️ Deployment / Setup
-
-## 17. `scripts/setup_gcp.sh`
-
-Example GCP setup script.
-
-It demonstrates how to:
-
-- Select a GCP project
-- Enable required APIs
-- Create a Cloud Storage bucket
-- Create a Pub/Sub topic
-- Create a Pub/Sub subscription
-
----
-
-## 18. `scripts/upload_data.sh`
-
-Uploads:
-
-- Batch data
-- Dataflow Python files
-
-to Cloud Storage.
-
----
-
-# 📚 Architecture Notes
-
-## 19. `architecture/architecture.md`
-
-Contains detailed explanations and interview questions covering:
-
-- Batch vs streaming
-- Airflow vs Dataflow
-- Pub/Sub
-- BigQuery
-- PCollection
-- Dead-letter queues
-- Idempotency
-- Partitioning
-- Clustering
-- Monitoring
-- Query optimization
-
-This should be one of the first files to read while preparing for interviews.
-
----
-
-# 🧠 Recommended Learning Order
-
-If you are using this repository specifically for **Data Engineering interview preparation**, follow this order:
-
-### Step 1 — Understand the architecture
-
-Read:
-
-`architecture/architecture.md`
-
-Then study:
-
-`docs/screenshots/end_to_end_architecture.svg`
-
-### Step 2 — Learn batch processing
-
-Read:
-
-`data/batch/orders.csv`
-
-→ `dataflow/common/transforms.py`
-
-→ `dataflow/batch/batch_orders_pipeline.py`
-
-→ `dags/batch_orders_dag.py`
-
-### Step 3 — Learn BigQuery
-
-Read:
-
-`sql/ddl/create_tables.sql`
-
-→ `sql/transformations/clean_orders.sql`
-
-→ `sql/transformations/daily_sales.sql`
-
-→ `sql/analytics/customer_analysis.sql`
-
-### Step 4 — Learn streaming
-
-Read:
-
-`data/streaming/order_events.json`
-
-→ `producer/publish_order_events.py`
-
-→ `dataflow/streaming/streaming_orders_pipeline.py`
-
-→ `dags/streaming_pipeline_dag.py`
-
-### Step 5 — Practice explaining the architecture
-
-Try to explain this without looking at the README:
-
-`Source → Ingestion → Processing → Storage → Transformation → Analytics`
-
----
-
-# 🎤 Interview Explanation
-
-A concise way to explain this project:
-
-> "I built an end-to-end GCP data engineering pipeline supporting both batch and streaming workloads. Cloud Composer orchestrates the workflows, Dataflow processes data using Apache Beam and Python, Pub/Sub handles streaming events, Cloud Storage acts as the batch landing layer, and BigQuery serves as the analytical warehouse. I used SQL for data cleansing, KPI calculations, customer analytics, and revenue analysis."
-
----
-
-# 🔑 Key Interview Topics Covered
-
-| Topic | Demonstrated In |
+| Scenario | Where to study |
 |---|---|
-| Python | Dataflow, producer, configuration |
-| SQL | DDL, transformations, analytics |
-| Apache Beam | Batch and streaming pipelines |
-| Dataflow | Batch + streaming processing |
-| Airflow | DAG orchestration |
-| Cloud Composer | Managed Airflow concept |
-| Pub/Sub | Streaming ingestion |
-| Cloud Storage | Batch landing |
-| BigQuery | Warehouse + analytics |
-| Partitioning | BigQuery DDL |
-| Clustering | BigQuery DDL |
-| Window Functions | Customer/revenue SQL |
-| CTEs | Analytics SQL |
-| Error Handling | Dataflow transformations |
-| Unit Testing | Python tests |
-| Data Quality | Validation and cleansing |
+| Duplicate files arrive twice | deduplicate_orders.sql |
+| Source sends an invalid row | data_quality_orders.sql |
+| Customer changes segment | customer_scd2_merge.sql |
+| Streaming backlog increases | Dataflow screenshot + architecture |
+| Late streaming events | streaming pipeline / windowing |
+| Dataflow job fails midway | audit + retry/idempotency design |
+| BigQuery query becomes expensive | partitioning + clustering |
+| Need historical customer state | SCD2 |
+| Need to replay events | JSONL medium dataset + producer |
+| Need to prove pipeline health | pipeline_run_audit |
+| Need business-facing metrics | daily_commercial_kpis |
+| Need customer-level analytics | customer_360 |
 
----
+## Recommended interview discussion
 
-# ⚠️ Important
+A strong explanation is:
 
-This repository is intentionally designed as a **learning/interview project**.
+> I designed a GCP e-commerce platform that handles both bounded and unbounded workloads. Cloud Storage provides the batch landing zone, Pub/Sub decouples streaming producers, Cloud Composer orchestrates dependencies, Dataflow performs distributed Python/Beam processing, and BigQuery provides the warehouse. I separated raw, staging, warehouse, mart and operational layers. The pipeline includes deterministic deduplication, data-quality quarantine, SCD Type 2 customer history, partitioning and clustering, streaming event-time processing, and audit metrics. The workload is represented by 10,000 order-line records and 5,000 streaming events so the design can be tested against something more realistic than a handful of rows.
 
-The code contains detailed comments explaining **what the code does, why it is needed, and which GCP/Data Engineering concept it demonstrates**.
+## Repository structure
 
-Before deploying to a real GCP project, replace all `YOUR_GCP_PROJECT_ID` and `YOUR_GCS_BUCKET` placeholders and configure appropriate IAM permissions.
+    MyGcp_Data_Engineering_projects/
+    ├── architecture/
+    ├── config/
+    ├── dags/
+    ├── data/
+    │   ├── batch/
+    │   ├── medium/
+    │   └── streaming/
+    ├── dataflow/
+    │   ├── batch/
+    │   ├── common/
+    │   └── streaming/
+    ├── docs/
+    │   ├── data_dictionary.md
+    │   └── screenshots/
+    ├── producer/
+    ├── scripts/
+    ├── sql/
+    │   ├── analytics/
+    │   ├── ddl/
+    │   ├── dimensions/
+    │   ├── marts/
+    │   ├── operations/
+    │   ├── streaming/
+    │   └── transformations/
+    └── tests/
 
-Never commit service-account keys or other secrets to GitHub.
+## Reference material
 
+The architecture and implementation patterns were informed by:
+
+- Google Cloud Dataflow documentation
+- Google Cloud BigQuery documentation
+- Google Cloud Pub/Sub → BigQuery guidance
+- GoogleCloudPlatform Dataflow Cookbook
+- GoogleCloudPlatform Dataflow Templates
+- Public GCP data-engineering examples used only as architectural references
+
+Official references:
+
+https://cloud.google.com/dataflow/docs  
+https://cloud.google.com/bigquery/docs  
+https://cloud.google.com/pubsub/docs  
+https://github.com/GoogleCloudPlatform/dataflow-cookbook  
+https://github.com/GoogleCloudPlatform/DataflowTemplates
+
+The sample records themselves are **original synthetic data generated for this repository**.
+
+## Important
+
+Replace all YOUR_GCP_PROJECT_ID and YOUR_GCS_BUCKET placeholders before deployment.
+
+Configure IAM using least privilege.
+
+Never commit service-account keys, OAuth tokens or other secrets.
+
+This repository is an interview/portfolio project. The console-style screenshots are illustrative documentation, not claims of production execution.
