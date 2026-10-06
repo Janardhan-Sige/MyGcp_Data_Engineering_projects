@@ -1,76 +1,122 @@
-"""Batch Dataflow pipeline: Cloud Storage CSV -> BigQuery.
+"""Production batch Dataflow pipeline for the retail order platform.
 
-Interview concepts covered:
-1. Beam PipelineOptions.
-2. Reading files from Cloud Storage.
-3. PCollection transformations.
-4. Data cleansing in Python.
-5. Writing structured records to BigQuery.
+Cloud Storage CSV -> parse/type -> validate -> BigQuery raw landing.
+
+Malformed records are emitted to a dead-letter output instead of being
+silently lost. Downstream SQL owns deduplication, dimensional modeling
+and marts.
 """
 
+from __future__ import annotations
+
 import argparse
+import csv
+import io
+from typing import Iterable
 
 import apache_beam as beam
 from apache_beam.options.pipeline_options import PipelineOptions
 
-from dataflow.common.transforms import clean_order, parse_csv_order
+REQUIRED_FIELDS = {
+    "order_id", "order_line_id", "customer_id", "order_ts", "product_id",
+    "quantity", "unit_price", "discount_amount", "tax_amount",
+    "gross_amount", "net_amount", "status", "payment_method", "channel",
+    "city", "updated_at", "source_system",
+}
 
 
-class ParseAndCleanOrder(beam.DoFn):
-    """Parse a CSV row and apply reusable cleaning logic."""
+class ParseValidateOrder(beam.DoFn):
+    """Convert CSV lines to typed records and tag invalid rows."""
 
-    def process(self, line: str):
-        # The first row is the CSV header and must not become a data record.
-        if line.startswith("order_id,"):
-            return
+    BAD = "bad"
 
+    def process(self, line: str) -> Iterable[dict]:
         try:
-            yield clean_order(parse_csv_order(line))
-        except (ValueError, IndexError) as exc:
-            # In production, send malformed rows to a dead-letter table.
-            # For learning, we simply log the rejected record.
-            print(f"Rejected row: {line}. Reason: {exc}")
+            row = next(csv.DictReader(io.StringIO(line)))
+            missing = REQUIRED_FIELDS - set(row)
+            if missing:
+                raise ValueError(f"Missing columns: {sorted(missing)}")
+
+            if not row["order_id"] or not row["order_line_id"]:
+                raise ValueError("Business key is missing")
+
+            quantity = int(row["quantity"])
+            unit_price = float(row["unit_price"])
+            if quantity <= 0 or unit_price < 0:
+                raise ValueError("Invalid quantity or unit_price")
+
+            yield {
+                **row,
+                "quantity": quantity,
+                "unit_price": unit_price,
+                "discount_amount": float(row["discount_amount"]),
+                "tax_amount": float(row["tax_amount"]),
+                "gross_amount": float(row["gross_amount"]),
+                "net_amount": float(row["net_amount"]),
+            }
+        except (ValueError, TypeError, StopIteration) as exc:
+            yield beam.pvalue.TaggedOutput(
+                self.BAD,
+                {"raw_record": line, "error_message": str(exc)},
+            )
 
 
-def run(argv=None):
-    """Build and execute the batch pipeline."""
-
+def run(argv=None) -> None:
     parser = argparse.ArgumentParser()
-
-    # These arguments make the same code reusable across environments.
-    parser.add_argument("--input", required=True, help="GCS CSV input path")
-    parser.add_argument("--output_table", required=True, help="BigQuery table")
+    parser.add_argument("--input", required=True)
+    parser.add_argument("--output_table", required=True)
+    parser.add_argument("--dead_letter_table", required=True)
     known_args, pipeline_args = parser.parse_known_args(argv)
 
     options = PipelineOptions(pipeline_args, save_main_session=True)
 
-    # BigQuery schema is explicit so interviewers can see the target contract.
-    schema = {
+    order_schema = {
         "fields": [
-            {"name": "order_id", "type": "STRING", "mode": "REQUIRED"},
-            {"name": "customer_id", "type": "STRING", "mode": "REQUIRED"},
-            {"name": "order_ts", "type": "DATETIME", "mode": "REQUIRED"},
-            {"name": "product_id", "type": "STRING", "mode": "REQUIRED"},
-            {"name": "quantity", "type": "INTEGER", "mode": "REQUIRED"},
-            {"name": "unit_price", "type": "FLOAT", "mode": "REQUIRED"},
-            {"name": "status", "type": "STRING", "mode": "REQUIRED"},
-            {"name": "city", "type": "STRING", "mode": "NULLABLE"},
-            {"name": "order_amount", "type": "FLOAT", "mode": "NULLABLE"},
+            {"name": "order_id", "type": "STRING"},
+            {"name": "order_line_id", "type": "STRING"},
+            {"name": "customer_id", "type": "STRING"},
+            {"name": "order_ts", "type": "TIMESTAMP"},
+            {"name": "product_id", "type": "STRING"},
+            {"name": "quantity", "type": "INTEGER"},
+            {"name": "unit_price", "type": "NUMERIC"},
+            {"name": "discount_amount", "type": "NUMERIC"},
+            {"name": "tax_amount", "type": "NUMERIC"},
+            {"name": "gross_amount", "type": "NUMERIC"},
+            {"name": "net_amount", "type": "NUMERIC"},
+            {"name": "status", "type": "STRING"},
+            {"name": "payment_method", "type": "STRING"},
+            {"name": "channel", "type": "STRING"},
+            {"name": "city", "type": "STRING"},
+            {"name": "updated_at", "type": "TIMESTAMP"},
+            {"name": "source_system", "type": "STRING"},
         ]
     }
+    dead_letter_schema = {"fields": [
+        {"name": "raw_record", "type": "STRING"},
+        {"name": "error_message", "type": "STRING"},
+    ]}
 
     with beam.Pipeline(options=options) as pipeline:
-        (
+        parsed = (
             pipeline
-            | "Read CSV From GCS" >> beam.io.ReadFromText(known_args.input)
-            | "Parse And Clean Orders" >> beam.ParDo(ParseAndCleanOrder())
-            | "Write Orders To BigQuery"
-            >> beam.io.WriteToBigQuery(
-                known_args.output_table,
-                schema=schema,
-                write_disposition=beam.io.BigQueryDisposition.WRITE_APPEND,
-                create_disposition=beam.io.BigQueryDisposition.CREATE_IF_NEEDED,
+            | "ReadLandingFiles" >> beam.io.ReadFromText(known_args.input)
+            | "ParseAndValidate" >> beam.ParDo(ParseValidateOrder()).with_outputs(
+                ParseValidateOrder.BAD, main="valid"
             )
+        )
+
+        parsed.valid | "WriteRawOrders" >> beam.io.WriteToBigQuery(
+            known_args.output_table,
+            schema=order_schema,
+            write_disposition=beam.io.BigQueryDisposition.WRITE_APPEND,
+            create_disposition=beam.io.BigQueryDisposition.CREATE_IF_NEEDED,
+        )
+
+        parsed[ParseValidateOrder.BAD] | "WriteOrderDLQ" >> beam.io.WriteToBigQuery(
+            known_args.dead_letter_table,
+            schema=dead_letter_schema,
+            write_disposition=beam.io.BigQueryDisposition.WRITE_APPEND,
+            create_disposition=beam.io.BigQueryDisposition.CREATE_IF_NEEDED,
         )
 
 

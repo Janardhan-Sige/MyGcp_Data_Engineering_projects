@@ -1,2 +1,0 @@
-{"order_id":"2001","customer_id":"C010","product_id":"P100","quantity":2,"unit_price":25.50,"event_type":"ORDER_CREATED","event_ts":"2026-10-07T10:00:00Z","city":"Hyderabad"}
-{"order_id":"2002","customer_id":"C011","product_id":"P200","quantity":1,"unit_price":80.00,"event_type":"ORDER_CREATED","event_ts":"2026-10-07T10:00:05Z","city":"Bengaluru"}
